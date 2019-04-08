@@ -1,5 +1,7 @@
 package com.medal.bronze.jsnader.arkhamweakness.weaknesses;
 
+import com.medal.bronze.jsnader.arkhamweakness.Card;
+import com.medal.bronze.jsnader.arkhamweakness.CardType;
 import com.medal.bronze.jsnader.arkhamweakness.support.CampaignAffinity;
 import com.medal.bronze.jsnader.arkhamweakness.support.CardTrait;
 
@@ -11,14 +13,14 @@ import java.util.ArrayList;
  *
  * Created by Jeremiah on 3/24/2018.
  */
-public class Weakness {
+public class Weakness extends Card {
     private String                  mName;
     private CampaignAffinity        mSetAffinity;
     private int                     mNumAvailForSet; //1 or 2 typically
     private ArrayList<CardTrait>    mCardTraits;
-    private int                     mDrawableResource;
 
     public Weakness(String pName, CampaignAffinity pSetAffinity, int pNumAvailable, int pDrawableResource){
+        mCardType = CardType.WEAKNESS;
         mName = pName;
         mSetAffinity = pSetAffinity;
         mNumAvailForSet = pNumAvailable;

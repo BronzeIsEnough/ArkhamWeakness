@@ -14,11 +14,11 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.medal.bronze.jsnader.arkhamweakness.locaions.Location;
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioType;
-import com.medal.bronze.jsnader.arkhamweakness.weaknesses.WeaknessBuilder;
+import com.medal.bronze.jsnader.arkhamweakness.weaknesses.CardBuilder;
 import com.medal.bronze.jsnader.arkhamweakness.weaknesses.Weakness;
 
 import java.util.ArrayList;
@@ -29,13 +29,13 @@ import java.util.Random;
  */
 public class ResultPage extends AppCompatActivity {
     private ScenarioType            mScenarioType;
-    private ArrayList<Weakness>     mWeaknesses;
+    private ArrayList<Card>         mCards;
     private Random                  mRandom;
     private FloatingActionButton    mFloatingButton;
     private ImageView               mImageViewCard;
-    private TextView mTextViewWeaknessNumber;
+    private TextView                mTextViewWeaknessNumber;
     private AnimationSet            mAnimationSet;
-    private int mNumberOfTheseWeaknessesAvailable;
+    private int                     mNumberOfTheseWeaknessesAvailable;
 
     @Override
     protected void onCreate(Bundle pSavedInstanceState) {
@@ -55,10 +55,11 @@ public class ResultPage extends AppCompatActivity {
             }
         });
 
-        mWeaknesses = new WeaknessBuilder(mScenarioType).getWeaknessList();
+        mCards = new CardBuilder(mScenarioType).getCardList();
+
         mRandom = new Random();
 
-        randomlyGenerateWeakness();
+        handleRandomCard();
     }
 
     private void provideHapticFeedback(){
@@ -66,18 +67,34 @@ public class ResultPage extends AppCompatActivity {
         vibrator.vibrate(50);
     }
 
-    private void randomlyGenerateWeakness(){
+    private void handleRandomCard(){
+        Card availableCard = mCards.get(0);
+
         if(mAnimationSet == null){
-           setupAnimation();
+            setupAnimation();
         }
-        Weakness randomWeakness = getRandomWeakness();
-        mNumberOfTheseWeaknessesAvailable = randomWeakness.getNumAvailable();
-        displayWeakness(randomWeakness);
+
+        if(availableCard instanceof Weakness){
+            randomlyGenerateWeakness();
+        }else if(availableCard instanceof Location){
+            randomlyGenerateLocation();
+        }
     }
 
-    private Weakness getRandomWeakness(){
-        int randomPosition = mRandom.nextInt(mWeaknesses.size());
-        return mWeaknesses.get(randomPosition);
+    private void randomlyGenerateWeakness(){
+        Weakness randomWeakness = (Weakness)getRandomCard();
+        mNumberOfTheseWeaknessesAvailable = randomWeakness.getNumAvailable();
+        displayCard(randomWeakness);
+    }
+
+    private void randomlyGenerateLocation(){
+        Location randomLocation = (Location)getRandomCard();
+        displayCard(randomLocation);
+    }
+
+    private Card getRandomCard(){
+        int randomPosition = mRandom.nextInt(mCards.size());
+        return mCards.get(randomPosition);
     }
 
     private void setupAnimation(){
@@ -97,9 +114,9 @@ public class ResultPage extends AppCompatActivity {
         mAnimationSet.setAnimationListener(new MyAnimationListener());
     }
 
-    private void displayWeakness(Weakness pWeakness){
+    private void displayCard(Card pCard){
         mImageViewCard.startAnimation(mAnimationSet);
-        mImageViewCard.setImageResource(pWeakness.getDrawableResource());
+        mImageViewCard.setImageResource(pCard.getDrawableResource());
     }
 
     @Override

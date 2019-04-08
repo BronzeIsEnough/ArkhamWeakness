@@ -1,4 +1,5 @@
 package com.medal.bronze.jsnader.arkhamweakness.weaknesses;
+import com.medal.bronze.jsnader.arkhamweakness.Card;
 import com.medal.bronze.jsnader.arkhamweakness.R;
 import com.medal.bronze.jsnader.arkhamweakness.locaions.Location;
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioBuilder;
@@ -15,12 +16,14 @@ import java.util.Arrays;
  *
  * Created by Jeremiah on 3/24/2018.
  */
-public class WeaknessBuilder {
+public class CardBuilder {
+    private ScenarioType        mScenarioType;
     private ArrayList<Weakness> mFullWeaknessList = new ArrayList<>();
-    private ArrayList<Weakness> mWeaknesses = new ArrayList<>();
-    private ArrayList<Location> mLocations = new ArrayList<>();
+    private ArrayList<Card>     mCardList = new ArrayList<>();
 
-    public WeaknessBuilder(ScenarioType pScenarioType){
+    public CardBuilder(ScenarioType pScenarioType){
+        mScenarioType = pScenarioType;
+
         setupFullWeaknessList();
 
         switch (pScenarioType){
@@ -39,14 +42,14 @@ public class WeaknessBuilder {
         }
     }
 
-    public ArrayList<Weakness> getWeaknessList(){
-        return mWeaknesses;
+    public ArrayList<Card> getCardList(){
+        return mCardList;
     }
 
     private void buildGeneralWeaknessList(){
         for (Weakness weakness : mFullWeaknessList){
             for(int index = 0; index < weakness.getNumAvailable(); index++){
-                mWeaknesses.add(weakness);
+                mCardList.add(weakness);
             }
         }
     }
@@ -57,7 +60,10 @@ public class WeaknessBuilder {
     }
 
     private void buildUndimensionedLocationList(){
-        mLocations =  new ScenarioBuilder().getScenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION).getLocations();
+        ArrayList<Location> locationList = new ScenarioBuilder().getScenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION).getLocations();
+        for (Location location : locationList){
+            mCardList.add(location);
+        }
     }
 
     private void buildBlackStarsRiseWeaknessList(){
@@ -70,7 +76,7 @@ public class WeaknessBuilder {
             for(CardTrait trait: pScenarioTraits){ //Step through each possible trait that the weakness could have.
                 if(weakness.getCardTraits().contains(trait)) {
                     for (int index = 0; index < weakness.getNumAvailable(); index++) { //If there are more than one card, add it multiple times.
-                        mWeaknesses.add(weakness);
+                        mCardList.add(weakness);
                     }
                     break; //If one trait is found in the search, then proceed to the next weakness;
                 }

@@ -2,6 +2,7 @@ package com.medal.bronze.jsnader.arkhamweakness.scenarios;
 
 import com.medal.bronze.jsnader.arkhamweakness.R;
 import com.medal.bronze.jsnader.arkhamweakness.locaions.Location;
+import com.medal.bronze.jsnader.arkhamweakness.locaions.LocationBuilder;
 import com.medal.bronze.jsnader.arkhamweakness.support.CardTrait;
 
 import java.util.ArrayList;
@@ -62,21 +63,21 @@ public class ScenarioBuilder {
     }
 
     private void addUndimensionedWeakness(ArrayList<Scenario> pScenarios){
-        Scenario undimensioned = new Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS,"Undimensioned & Unseen - Weakness", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen);
+        Scenario undimensionedWkns = new Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS,"Undimensioned & Unseen - Weakness", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen);
         clear();
         mCardTraits.add(CardTrait.MADNESS);
         mCardTraits.add(CardTrait.INJURY);
         mCardTraits.add(CardTrait.PACT);
-        undimensioned.setTraits(new ArrayList<CardTrait>(mCardTraits));
-        pScenarios.add(undimensioned);
+        undimensionedWkns.setTraits(new ArrayList<CardTrait>(mCardTraits));
+        pScenarios.add(undimensionedWkns);
     }
 
     private void addUndimensionedLocations(ArrayList<Scenario> pScenarios){
-        Scenario undimensioned = new Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION,"Undimensioned & Unseen - Location", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen);
+        Scenario undimensionedLocs = new Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION,"Undimensioned & Unseen - Location", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen);
         clear();
-        mLocations = new Location().getUnseenLocations();
-        undimensioned.setLocations(mLocations);
-        pScenarios.add(undimensioned);
+        mLocations = LocationBuilder.getInstance().getUnseenLocations();
+        undimensionedLocs.setLocations(mLocations);
+        pScenarios.add(undimensionedLocs);
     }
 
     private void addBlackStarsRise(ArrayList<Scenario> pScenarios){
