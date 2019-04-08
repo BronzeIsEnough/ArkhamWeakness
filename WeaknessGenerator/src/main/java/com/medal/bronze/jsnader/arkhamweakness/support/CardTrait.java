@@ -9,15 +9,18 @@ package com.medal.bronze.jsnader.arkhamweakness.support;
  */
 public enum CardTrait {
     ALL,
-    MADNESS,
-    PACT,
-    CURSE,
-    FLAW,
-    INJURY,
-    HUMANOID,
     CRIMINAL,
     CULTIST,
-    SILVER_TWILIGHT,
+    CURSE,
     DETECTIVE,
-    MONSTER
+    FLAW,
+    HUMANOID,
+    INJURY,
+    MADNESS,
+    MONSTER,
+    MYSTERY,
+    OMEN,
+    PACT,
+    SILVER_TWILIGHT,
+    TAROT
 }

@@ -7,6 +7,7 @@ import com.medal.bronze.jsnader.arkhamweakness.support.CampaignAffinity;
 import com.medal.bronze.jsnader.arkhamweakness.support.CardTrait;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * A class that is meant to build a list of weaknesses that would define what should be included
@@ -69,87 +70,63 @@ public class WeaknessBuilder {
         }
     }
 
-    private void setupFullWeaknessList(){
+    private void setupFullWeaknessList(){ //Keep alphabetical for easy reference later.
         ArrayList<CardTrait> cardTraits = new ArrayList<>();
         Weakness amnWeakness = new Weakness("Amnesia", CampaignAffinity.NIGHT_OF_THE_ZEALOT, 2, R.drawable.weakness_amnesia);
-        cardTraits.add(CardTrait.MADNESS);
-        amnWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(amnWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.MADNESS)));
 
         Weakness chrWeakness = new Weakness("Chronophobia", CampaignAffinity.DUNWICH_LEGACY, 2, R.drawable.weakness_chronophobia);
-        cardTraits.add(CardTrait.MADNESS);
-        chrWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(chrWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.MADNESS)));
+
+        Weakness drkPctWeakness = new Weakness("Dark Pact", CampaignAffinity.THE_FORGOTTEN_AGE, 1, R.drawable.weakness_dark_pact);
+        assignCardTraits(drkPctWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.PACT)));
 
         Weakness drwSignWeakeness = new Weakness("Drawing the Sign", CampaignAffinity.PATH_TO_CARCOSA, 1, R.drawable.weakness_drawing_the_sign);
-        cardTraits.add(CardTrait.MADNESS);
-        cardTraits.add(CardTrait.PACT);
-        drwSignWeakeness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(drwSignWeakeness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.MADNESS, CardTrait.PACT)));
 
         Weakness hauWeakness = new Weakness("Haunted", CampaignAffinity.NIGHT_OF_THE_ZEALOT, 1, R.drawable.weakness_haunted);
-        cardTraits.add(CardTrait.CURSE);
-        hauWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(hauWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.CURSE)));
 
         Weakness hypWeakness = new Weakness("Hypochondria", CampaignAffinity.NIGHT_OF_THE_ZEALOT, 1, R.drawable.weakness_hypochondria);
-        cardTraits.add(CardTrait.MADNESS);
-        hypWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(hypWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.MADNESS)));
 
         Weakness indWeakness = new Weakness("Indebted", CampaignAffinity.DUNWICH_LEGACY, 2, R.drawable.weakness_indebted);
-        cardTraits.add(CardTrait.FLAW);
-        indWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(indWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.FLAW)));
 
         Weakness intWeakness = new Weakness("Internal Injury", CampaignAffinity.DUNWICH_LEGACY, 2, R.drawable.weakness_internal_injury);
-        cardTraits.add(CardTrait.INJURY);
-        intWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(intWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.INJURY)));
 
         Weakness mobWeakness = new Weakness("Mob Enforcer", CampaignAffinity.NIGHT_OF_THE_ZEALOT, 1, R.drawable.weakness_mob_enforcer);
-        cardTraits.add(CardTrait.HUMANOID);
-        cardTraits.add(CardTrait.CRIMINAL);
-        mobWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(mobWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.HUMANOID, CardTrait.CRIMINAL)));
 
         Weakness ovrWeakness = new Weakness("Overzealous", CampaignAffinity.PATH_TO_CARCOSA, 2, R.drawable.weakness_overzealous);
-        cardTraits.add(CardTrait.FLAW);
-        ovrWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(ovrWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.FLAW)));
 
         Weakness parWeakness = new Weakness("Paranoia", CampaignAffinity.NIGHT_OF_THE_ZEALOT, 2, R.drawable.weakness_paranoia);
-        cardTraits.add(CardTrait.MADNESS);
-        parWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(parWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.MADNESS)));
 
         Weakness psyWeakness = new Weakness("Psychosis", CampaignAffinity.NIGHT_OF_THE_ZEALOT, 1, R.drawable.weakness_psychosis);
-        cardTraits.add(CardTrait.MADNESS);
-        psyWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(psyWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.MADNESS)));
 
         Weakness silWeakness = new Weakness("Silver Twilight Acolyte", CampaignAffinity.NIGHT_OF_THE_ZEALOT, 1, R.drawable.weakness_silver_twilight_acolyte);
-        cardTraits.add(CardTrait.HUMANOID);
-        cardTraits.add(CardTrait.CULTIST);
-        cardTraits.add(CardTrait.SILVER_TWILIGHT);
-        silWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(silWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.HUMANOID, CardTrait.CULTIST, CardTrait.SILVER_TWILIGHT)));
 
         Weakness stbWeakness = new Weakness("Stubborn Detective", CampaignAffinity.NIGHT_OF_THE_ZEALOT, 1, R.drawable.weakness_stubbor_detective);
-        cardTraits.add(CardTrait.HUMANOID);
-        cardTraits.add(CardTrait.DETECTIVE);
-        stbWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(stbWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.HUMANOID, CardTrait.DETECTIVE)));
 
         Weakness thgWeakness = new Weakness("The Thing That Follows", CampaignAffinity.PATH_TO_CARCOSA, 1, R.drawable.weakness_the_thing_that_follows);
-        cardTraits.add(CardTrait.MONSTER);
-        cardTraits.add(CardTrait.CURSE);
-        thgWeakness.setCardTraits(cardTraits);
-        cardTraits.clear();
+        assignCardTraits(thgWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.MONSTER, CardTrait.CURSE)));
+
+        Weakness twrXviWeakenss = new Weakness("The Tower - XVI: Circumstances Beyond Your Control", CampaignAffinity.CIRCLE_UNDONE, 2, R.drawable.weakness_the_tower);
+        assignCardTraits(twrXviWeakenss, new ArrayList<CardTrait>(Arrays.asList(CardTrait.OMEN, CardTrait.TAROT)));
+
+        Weakness thrDaGtsWeakness = new Weakness("Through the Gates", CampaignAffinity.CIRCLE_UNDONE, 1, R.drawable.weakness_through_the_gates);
+        assignCardTraits(thrDaGtsWeakness, new ArrayList<CardTrait>(Arrays.asList(CardTrait.PACT, CardTrait.MYSTERY)));
 
         mFullWeaknessList.add(amnWeakness);
         mFullWeaknessList.add(chrWeakness);
         mFullWeaknessList.add(drwSignWeakeness);
+        mFullWeaknessList.add(drkPctWeakness);
         mFullWeaknessList.add(hauWeakness);
         mFullWeaknessList.add(hypWeakness);
         mFullWeaknessList.add(indWeakness);
@@ -161,6 +138,16 @@ public class WeaknessBuilder {
         mFullWeaknessList.add(silWeakness);
         mFullWeaknessList.add(stbWeakness);
         mFullWeaknessList.add(thgWeakness);
+        mFullWeaknessList.add(twrXviWeakenss);
+        mFullWeaknessList.add(thrDaGtsWeakness);
+    }
+
+    private void assignCardTraits(Weakness pWeakness, ArrayList<CardTrait> pCardTraits){
+        for (CardTrait trait: pCardTraits) {
+            pCardTraits.add(trait);
+        }
+        pWeakness.setCardTraits(pCardTraits);
+        pCardTraits.clear();
     }
 }
 

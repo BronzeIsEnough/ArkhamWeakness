@@ -10,5 +10,7 @@ package com.medal.bronze.jsnader.arkhamweakness.support;
 public enum CampaignAffinity {
     NIGHT_OF_THE_ZEALOT,
     DUNWICH_LEGACY,
-    PATH_TO_CARCOSA
+    PATH_TO_CARCOSA,
+    THE_FORGOTTEN_AGE,
+    CIRCLE_UNDONE
 }
