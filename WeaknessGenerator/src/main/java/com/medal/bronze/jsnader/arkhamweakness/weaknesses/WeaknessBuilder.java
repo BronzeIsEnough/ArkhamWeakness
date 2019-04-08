@@ -1,6 +1,6 @@
 package com.medal.bronze.jsnader.arkhamweakness.weaknesses;
 import com.medal.bronze.jsnader.arkhamweakness.R;
-import com.medal.bronze.jsnader.arkhamweakness.scenarios.Scenario;
+import com.medal.bronze.jsnader.arkhamweakness.locaions.Location;
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioBuilder;
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioType;
 import com.medal.bronze.jsnader.arkhamweakness.support.CampaignAffinity;
@@ -18,6 +18,7 @@ import java.util.Arrays;
 public class WeaknessBuilder {
     private ArrayList<Weakness> mFullWeaknessList = new ArrayList<>();
     private ArrayList<Weakness> mWeaknesses = new ArrayList<>();
+    private ArrayList<Location> mLocations = new ArrayList<>();
 
     public WeaknessBuilder(ScenarioType pScenarioType){
         setupFullWeaknessList();
@@ -26,8 +27,11 @@ public class WeaknessBuilder {
             case GENERAL:
                 buildGeneralWeaknessList();
                 break;
-            case UNDIMENSIONED_AND_UNSEEN:
+            case UNDIMENSIONED_AND_UNSEEN_WEAKNESS:
                 buildUndimensionedWeaknessList();
+                break;
+            case UNDIMENSIONED_AND_UNSEEN_LOCATION:
+                buildUndimensionedLocationList();
                 break;
             case BLACK_STARS_RISE:
                 buildBlackStarsRiseWeaknessList();
@@ -48,8 +52,12 @@ public class WeaknessBuilder {
     }
 
     private void buildUndimensionedWeaknessList(){
-        ArrayList<CardTrait> traits = new ScenarioBuilder().getScenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN).getTraits();
+        ArrayList<CardTrait> traits = new ScenarioBuilder().getScenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS).getTraits();
         updateListWithTraits(traits);
+    }
+
+    private void buildUndimensionedLocationList(){
+        mLocations =  new ScenarioBuilder().getScenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION).getLocations();
     }
 
     private void buildBlackStarsRiseWeaknessList(){

@@ -1,6 +1,7 @@
 package com.medal.bronze.jsnader.arkhamweakness.scenarios;
 
 import com.medal.bronze.jsnader.arkhamweakness.support.CardTrait;
+import com.medal.bronze.jsnader.arkhamweakness.locaions.Location;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ public class Scenario {
     private String               mCampaignTitle;
     private int                  mImageResource;
     private ArrayList<CardTrait> mTraits;
+    private ArrayList<Location>  mLocations;
 
     public Scenario(ScenarioType pScenarioType, String pScenarioTitle, String pCampaignTitle, int pImageResource){
         mScenarioType = pScenarioType;
@@ -33,4 +35,6 @@ public class Scenario {
         mTraits = pTraits;
     }
     public ArrayList<CardTrait> getTraits(){return mTraits;}
+    public void setLocations(ArrayList<Location> pLocations) {mLocations = pLocations;}
+    public ArrayList<Location>  getLocations(){return mLocations;}
 }

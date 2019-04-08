@@ -8,6 +8,7 @@ package com.medal.bronze.jsnader.arkhamweakness.scenarios;
 
 public enum ScenarioType {
     GENERAL,
-    UNDIMENSIONED_AND_UNSEEN,
+    UNDIMENSIONED_AND_UNSEEN_WEAKNESS,
+    UNDIMENSIONED_AND_UNSEEN_LOCATION,
     BLACK_STARS_RISE
 }

@@ -1,6 +1,7 @@
 package com.medal.bronze.jsnader.arkhamweakness.scenarios;
 
 import com.medal.bronze.jsnader.arkhamweakness.R;
+import com.medal.bronze.jsnader.arkhamweakness.locaions.Location;
 import com.medal.bronze.jsnader.arkhamweakness.support.CardTrait;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 public class ScenarioBuilder {
     private ArrayList<CardTrait> mCardTraits = new ArrayList<>();
+    private ArrayList<Location>  mLocations = new ArrayList<>();
 
     public ScenarioBuilder(){
 
@@ -23,7 +25,8 @@ public class ScenarioBuilder {
         ArrayList<Scenario> scenarios = new ArrayList<>();
 
         addGeneralAllInclusive(scenarios);
-        addUndimensioned(scenarios);
+        addUndimensionedWeakness(scenarios);
+        addUndimensionedLocations(scenarios);
         addBlackStarsRise(scenarios);
 
         return scenarios;
@@ -36,8 +39,11 @@ public class ScenarioBuilder {
             case GENERAL:
                 addGeneralAllInclusive(scenarios);
                 break;
-            case UNDIMENSIONED_AND_UNSEEN:
-                addUndimensioned(scenarios);
+            case UNDIMENSIONED_AND_UNSEEN_WEAKNESS:
+                addUndimensionedWeakness(scenarios);
+                break;
+            case UNDIMENSIONED_AND_UNSEEN_LOCATION:
+                addUndimensionedLocations(scenarios);
                 break;
             case BLACK_STARS_RISE:
                 addBlackStarsRise(scenarios);
@@ -49,15 +55,15 @@ public class ScenarioBuilder {
 
     private void addGeneralAllInclusive(ArrayList<Scenario> pScenarios){
         Scenario allInclusive = new Scenario(ScenarioType.GENERAL, "General Weakness", "All Inclusive", R.drawable.general_weakness);
-        mCardTraits.clear();
+        clear();
         mCardTraits.add(CardTrait.ALL);
         allInclusive.setTraits(new ArrayList<CardTrait>(mCardTraits));
         pScenarios.add(allInclusive);
     }
 
-    private void addUndimensioned(ArrayList<Scenario> pScenarios){
-        Scenario undimensioned = new Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN,"Undimensioned & Unseen", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen);
-        mCardTraits.clear();
+    private void addUndimensionedWeakness(ArrayList<Scenario> pScenarios){
+        Scenario undimensioned = new Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS,"Undimensioned & Unseen - Weakness", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen);
+        clear();
         mCardTraits.add(CardTrait.MADNESS);
         mCardTraits.add(CardTrait.INJURY);
         mCardTraits.add(CardTrait.PACT);
@@ -65,14 +71,27 @@ public class ScenarioBuilder {
         pScenarios.add(undimensioned);
     }
 
+    private void addUndimensionedLocations(ArrayList<Scenario> pScenarios){
+        Scenario undimensioned = new Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION,"Undimensioned & Unseen - Location", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen);
+        clear();
+        mLocations = new Location().getUnseenLocations();
+        undimensioned.setLocations(mLocations);
+        pScenarios.add(undimensioned);
+    }
+
     private void addBlackStarsRise(ArrayList<Scenario> pScenarios){
         Scenario blackStarsRise = new Scenario(ScenarioType.BLACK_STARS_RISE,"Black Stars Rise", "in the Path to Carcosa campaign", R.drawable.black_stars_rise);
-        mCardTraits.clear();
+        clear();
         mCardTraits.add(CardTrait.MADNESS);
         mCardTraits.add(CardTrait.PACT);
         mCardTraits.add(CardTrait.CULTIST);
         mCardTraits.add(CardTrait.DETECTIVE);
         blackStarsRise.setTraits(new ArrayList<CardTrait>(mCardTraits));
         pScenarios.add(blackStarsRise);
+    }
+
+    private void clear(){
+        mCardTraits.clear();
+        mLocations.clear();
     }
 }
