@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 26
 
     defaultConfig {
         applicationId "com.medal.bronze.jsnader.arkhamweakness"
-        minSdkVersion 15
-        targetSdkVersion 23
+        minSdkVersion 19
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -22,7 +22,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:23.4.0'
-    implementation 'com.android.support:design:23.4.0'
-    implementation 'com.android.support:recyclerview-v7:23.4.0'
+    implementation 'com.android.support:appcompat-v7:26+'
+    implementation 'com.android.support:design:26+'
+    implementation 'com.android.support:recyclerview-v7:26+'
 }
