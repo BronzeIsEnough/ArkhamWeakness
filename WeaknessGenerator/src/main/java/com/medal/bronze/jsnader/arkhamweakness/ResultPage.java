@@ -50,7 +50,7 @@ public class ResultPage extends AppCompatActivity {
         mFloatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                randomlyGenerateWeakness();
+                handleRandomCard();
                 provideHapticFeedback();
             }
         });

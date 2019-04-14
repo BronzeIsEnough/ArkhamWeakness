@@ -156,8 +156,8 @@ public class CardBuilder {
         mFullWeaknessList.add(thrDaGtsWeakness);
     }
 
-    private void assignCardTraits(Weakness pWeakness, ArrayList<CardTrait> pCardTraits){
-        for (CardTrait trait: pCardTraits) {
+    private synchronized void assignCardTraits(Weakness pWeakness, ArrayList<CardTrait> pCardTraits){
+        for (CardTrait trait: new ArrayList<CardTrait>(pCardTraits)) {
             pCardTraits.add(trait);
         }
         pWeakness.setCardTraits(pCardTraits);
