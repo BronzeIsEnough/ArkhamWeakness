@@ -1,7 +1,7 @@
 package com.medal.bronze.jsnader.arkhamweakness.weaknesses;
 import com.medal.bronze.jsnader.arkhamweakness.Card;
 import com.medal.bronze.jsnader.arkhamweakness.R;
-import com.medal.bronze.jsnader.arkhamweakness.locaions.Location;
+import com.medal.bronze.jsnader.arkhamweakness.locations.Location;
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioBuilder;
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioType;
 import com.medal.bronze.jsnader.arkhamweakness.support.CampaignAffinity;

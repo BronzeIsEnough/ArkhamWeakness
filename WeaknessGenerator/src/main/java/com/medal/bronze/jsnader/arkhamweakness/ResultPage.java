@@ -16,7 +16,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.medal.bronze.jsnader.arkhamweakness.locaions.Location;
+import com.medal.bronze.jsnader.arkhamweakness.locations.Location;
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioType;
 import com.medal.bronze.jsnader.arkhamweakness.weaknesses.CardBuilder;
 import com.medal.bronze.jsnader.arkhamweakness.weaknesses.Weakness;

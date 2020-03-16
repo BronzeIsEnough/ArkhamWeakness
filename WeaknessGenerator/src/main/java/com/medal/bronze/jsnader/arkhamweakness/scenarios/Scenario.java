@@ -1,7 +1,7 @@
 package com.medal.bronze.jsnader.arkhamweakness.scenarios;
 
 import com.medal.bronze.jsnader.arkhamweakness.support.CardTrait;
-import com.medal.bronze.jsnader.arkhamweakness.locaions.Location;
+import com.medal.bronze.jsnader.arkhamweakness.locations.Location;
 
 import java.util.ArrayList;
 

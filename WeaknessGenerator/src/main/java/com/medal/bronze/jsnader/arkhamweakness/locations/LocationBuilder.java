@@ -1,4 +1,4 @@
-package com.medal.bronze.jsnader.arkhamweakness.locaions;
+package com.medal.bronze.jsnader.arkhamweakness.locations;
 
 import com.medal.bronze.jsnader.arkhamweakness.R;
 
