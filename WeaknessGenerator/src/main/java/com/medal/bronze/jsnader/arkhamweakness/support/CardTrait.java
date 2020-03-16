@@ -22,5 +22,6 @@ public enum CardTrait {
     OMEN,
     PACT,
     SILVER_TWILIGHT,
+    TALENT,
     TAROT
 }
