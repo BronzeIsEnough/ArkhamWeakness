@@ -1,4 +1,4 @@
-package com.medal.bronze.jsnader.arkhamweakness.support;
+package com.medal.bronze.jsnader.arkhamweakness.support
 
 /**
  * Describes where the card originated from which will allow for further filtering during the
@@ -7,13 +7,6 @@ package com.medal.bronze.jsnader.arkhamweakness.support;
  *
  * Created by Jeremiah on 3/24/2018.
  */
-public enum CampaignAffinity {
-    NIGHT_OF_THE_ZEALOT,
-    DUNWICH_LEGACY,
-    RETURN_TO_DUNWICH_LEGACY,
-    PATH_TO_CARCOSA,
-    RETURN_TO_PATH_TO_CARCOSA,
-    THE_FORGOTTEN_AGE,
-    CIRCLE_UNDONE,
-    DREAM_EATERS
+enum class CampaignAffinity {
+    NIGHT_OF_THE_ZEALOT, DUNWICH_LEGACY, RETURN_TO_DUNWICH_LEGACY, PATH_TO_CARCOSA, RETURN_TO_PATH_TO_CARCOSA, THE_FORGOTTEN_AGE, CIRCLE_UNDONE, DREAM_EATERS
 }

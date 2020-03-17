@@ -1,4 +1,4 @@
-package com.medal.bronze.jsnader.arkhamweakness.support;
+package com.medal.bronze.jsnader.arkhamweakness.support
 
 /**
  * Represents the traits associated with a card in the Arkham Horror game.  These are typically
@@ -7,21 +7,6 @@ package com.medal.bronze.jsnader.arkhamweakness.support;
  *
  * Created by Jeremiah on 3/24/2018.
  */
-public enum CardTrait {
-    ALL,
-    CRIMINAL,
-    CULTIST,
-    CURSE,
-    DETECTIVE,
-    FLAW,
-    HUMANOID,
-    INJURY,
-    MADNESS,
-    MONSTER,
-    MYSTERY,
-    OMEN,
-    PACT,
-    SILVER_TWILIGHT,
-    TALENT,
-    TAROT
+enum class CardTrait {
+    ALL, CRIMINAL, CULTIST, CURSE, DETECTIVE, FLAW, HUMANOID, INJURY, MADNESS, MONSTER, MYSTERY, OMEN, PACT, SILVER_TWILIGHT, TALENT, TAROT
 }
