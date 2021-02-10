@@ -143,7 +143,7 @@ class CardBuilder(private val mScenarioType: ScenarioType?) {
 
     @Synchronized
     private fun assignCardTraits(pWeakness: Weakness?, pCardTraits: ArrayList<CardTrait?>?) {
-        for (trait in ArrayList(pCardTraits)) {
+        for (trait in pCardTraits?.let { ArrayList(it) }!!) {
             pCardTraits?.add(trait)
         }
         pWeakness?.setCardTraits(pCardTraits)

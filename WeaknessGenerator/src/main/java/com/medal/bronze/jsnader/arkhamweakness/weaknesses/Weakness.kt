@@ -19,7 +19,7 @@ class Weakness(pName: String?, pSetAffinity: CampaignAffinity?, pNumAvailable: I
             : Int
     private var mCardTraits: ArrayList<CardTrait?>? = null
     fun setCardTraits(pCardTraits: ArrayList<CardTrait?>?) {
-        mCardTraits = ArrayList(pCardTraits)
+        mCardTraits = pCardTraits?.let { ArrayList(it) }
     }
 
     fun getCardTraits(): ArrayList<CardTrait?>? {

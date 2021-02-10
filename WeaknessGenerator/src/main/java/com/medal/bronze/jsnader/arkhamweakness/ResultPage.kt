@@ -3,8 +3,6 @@ package com.medal.bronze.jsnader.arkhamweakness
 import android.content.Context
 import android.os.Bundle
 import android.os.Vibrator
-import android.support.design.widget.FloatingActionButton
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -12,6 +10,8 @@ import android.view.animation.*
 import android.view.animation.Animation.AnimationListener
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.medal.bronze.jsnader.arkhamweakness.locations.Location
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioType
 import com.medal.bronze.jsnader.arkhamweakness.weaknesses.CardBuilder

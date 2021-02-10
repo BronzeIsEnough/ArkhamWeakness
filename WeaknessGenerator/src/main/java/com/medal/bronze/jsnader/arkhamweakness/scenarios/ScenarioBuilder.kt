@@ -40,7 +40,7 @@ class ScenarioBuilder {
         val allInclusive : Scenario = Scenario(ScenarioType.GENERAL, "General Weakness", "All Inclusive", R.drawable.general_weakness)
         clear()
         mCardTraits?.add(CardTrait.ALL)
-        allInclusive.setTraits(ArrayList(mCardTraits))
+        allInclusive.setTraits(mCardTraits?.let { ArrayList(it) })
         pScenarios?.add(allInclusive)
     }
 
@@ -50,7 +50,7 @@ class ScenarioBuilder {
         mCardTraits?.add(CardTrait.MADNESS)
         mCardTraits?.add(CardTrait.INJURY)
         mCardTraits?.add(CardTrait.PACT)
-        undimensionedWkns.setTraits(ArrayList(mCardTraits))
+        undimensionedWkns.setTraits(mCardTraits?.let { ArrayList(it) })
         pScenarios?.add(undimensionedWkns)
     }
 
@@ -69,7 +69,7 @@ class ScenarioBuilder {
         mCardTraits?.add(CardTrait.PACT)
         mCardTraits?.add(CardTrait.CULTIST)
         mCardTraits?.add(CardTrait.DETECTIVE)
-        blackStarsRise.setTraits(ArrayList(mCardTraits))
+        blackStarsRise.setTraits(mCardTraits?.let { ArrayList(it) })
         pScenarios?.add(blackStarsRise)
     }
 

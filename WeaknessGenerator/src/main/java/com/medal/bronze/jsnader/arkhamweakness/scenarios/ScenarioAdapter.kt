@@ -1,12 +1,12 @@
 package com.medal.bronze.jsnader.arkhamweakness.scenarios
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.medal.bronze.jsnader.arkhamweakness.R
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioAdapter.MyViewHolder
 import com.medal.bronze.jsnader.arkhamweakness.support.ScenarioSelectedListener
@@ -18,12 +18,13 @@ import com.medal.bronze.jsnader.arkhamweakness.support.ScenarioSelectedListener
  * Created by Jeremiah on 3/24/2018.
  */
 class ScenarioAdapter(private val mScenarioList: MutableList<Scenario?>?, private val mListener: ScenarioSelectedListener?) : RecyclerView.Adapter<MyViewHolder?>() {
-    override fun onCreateViewHolder(pParent: ViewGroup?, pViewType: Int): MyViewHolder? {
+
+    override fun onCreateViewHolder(pParent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(pParent?.getContext()).inflate(R.layout.scenario_recycle_view_item, pParent, false)
         return MyViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(pHolder: MyViewHolder?, pPosition: Int) {
+    override fun onBindViewHolder(pHolder: MyViewHolder, pPosition: Int) {
         val scenario = mScenarioList?.get(pPosition)
         pHolder?.mScenarioType = scenario?.getScenarioType()
         pHolder?.mTextViewScenarioTitle?.setText(scenario?.getScenarioTitle())
@@ -35,7 +36,7 @@ class ScenarioAdapter(private val mScenarioList: MutableList<Scenario?>?, privat
         return mScenarioList?.size!!
     }
 
-    inner class MyViewHolder(pView: View?) : RecyclerView.ViewHolder(pView), View.OnClickListener {
+    inner class MyViewHolder(pView: View) : RecyclerView.ViewHolder(pView), View.OnClickListener {
         var mContext: Context?
         var mScenarioType: ScenarioType? = null
         var mTextViewScenarioTitle: TextView?
@@ -53,5 +54,4 @@ class ScenarioAdapter(private val mScenarioList: MutableList<Scenario?>?, privat
             pView.setOnClickListener(this)
         }
     }
-
 }
