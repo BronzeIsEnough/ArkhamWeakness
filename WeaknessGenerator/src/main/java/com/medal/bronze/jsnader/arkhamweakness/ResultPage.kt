@@ -1,7 +1,9 @@
 package com.medal.bronze.jsnader.arkhamweakness
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
 import android.os.Vibrator
 import android.view.Menu
 import android.view.MenuItem
@@ -49,7 +51,12 @@ class ResultPage : AppCompatActivity() {
 
     private fun provideHapticFeedback() {
         val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        vibrator.vibrate(50)
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(150,10))
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator.vibrate(150)
+        }
     }
 
     private fun handleRandomCard() {
@@ -105,6 +112,7 @@ class ResultPage : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
         return super.onOptionsItemSelected(item)
     }
 
@@ -115,16 +123,16 @@ class ResultPage : AppCompatActivity() {
 
     private inner class MyAnimationListener : AnimationListener {
         override fun onAnimationStart(animation: Animation?) {
-            mFloatingButton?.setEnabled(false)
-            mTextViewWeaknessNumber?.setText("")
+            mFloatingButton?.isEnabled = false
+            mTextViewWeaknessNumber?.text = ""
         }
 
         override fun onAnimationEnd(animation: Animation?) {
-            mFloatingButton?.setEnabled(true)
+            mFloatingButton?.isEnabled = true
             var chosenPosition = ceil(Math.random() * mNumberOfTheseWeaknessesAvailable).toInt()
             //If the card doesn't have this attribute then assume value 1 of 1
             if(chosenPosition == 0 || mNumberOfTheseWeaknessesAvailable == 0) {chosenPosition = 1; mNumberOfTheseWeaknessesAvailable = 1;}
-            mTextViewWeaknessNumber?.setText("$chosenPosition of $mNumberOfTheseWeaknessesAvailable")
+            mTextViewWeaknessNumber?.text = "$chosenPosition of $mNumberOfTheseWeaknessesAvailable"
         }
 
         override fun onAnimationRepeat(animation: Animation?) {}

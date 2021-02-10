@@ -20,16 +20,16 @@ import com.medal.bronze.jsnader.arkhamweakness.support.ScenarioSelectedListener
 class ScenarioAdapter(private val mScenarioList: MutableList<Scenario?>?, private val mListener: ScenarioSelectedListener?) : RecyclerView.Adapter<MyViewHolder?>() {
 
     override fun onCreateViewHolder(pParent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(pParent?.getContext()).inflate(R.layout.scenario_recycle_view_item, pParent, false)
+        val itemView = LayoutInflater.from(pParent.context).inflate(R.layout.scenario_recycle_view_item, pParent, false)
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(pHolder: MyViewHolder, pPosition: Int) {
         val scenario = mScenarioList?.get(pPosition)
-        pHolder?.mScenarioType = scenario?.getScenarioType()
-        pHolder?.mTextViewScenarioTitle?.setText(scenario?.getScenarioTitle())
-        pHolder?.mTextViewCampaignTitle?.setText(scenario?.getCampaignTitle())
-        scenario?.getImageResource()?.let { pHolder?.mImageViewScenarioGraphic?.setImageResource(it) }
+        pHolder.mScenarioType = scenario?.getScenarioType()
+        pHolder.mTextViewScenarioTitle?.text = scenario?.getScenarioTitle()
+        pHolder.mTextViewCampaignTitle?.text = scenario?.getCampaignTitle()
+        scenario?.getImageResource()?.let { pHolder.mImageViewScenarioGraphic?.setImageResource(it) }
     }
 
     override fun getItemCount(): Int {
@@ -47,8 +47,8 @@ class ScenarioAdapter(private val mScenarioList: MutableList<Scenario?>?, privat
         }
 
         init {
-            mContext = pView?.getContext()
-            mTextViewScenarioTitle = pView?.findViewById<View?>(R.id.textViewScenarioTitle) as TextView
+            pView.context.also { mContext = it }
+            mTextViewScenarioTitle = pView.findViewById<View?>(R.id.textViewScenarioTitle) as TextView
             mTextViewCampaignTitle = pView.findViewById<View?>(R.id.textViewCampaignTitle) as TextView
             mImageViewScenarioGraphic = pView.findViewById<View?>(R.id.imageViewScenarioBackground) as ImageView
             pView.setOnClickListener(this)
