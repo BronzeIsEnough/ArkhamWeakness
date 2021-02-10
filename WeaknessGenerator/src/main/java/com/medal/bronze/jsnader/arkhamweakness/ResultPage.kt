@@ -38,10 +38,10 @@ class ResultPage : AppCompatActivity() {
         mTextViewWeaknessNumber = findViewById<View?>(R.id.textViewDisplayNumber) as TextView
         mScenarioType = intent.getSerializableExtra(getString(R.string.scenario_type)) as ScenarioType
         mFloatingButton = findViewById<View?>(R.id.fab) as FloatingActionButton
-        mFloatingButton!!.setOnClickListener(View.OnClickListener {
+        mFloatingButton!!.setOnClickListener {
             handleRandomCard()
             provideHapticFeedback()
-        })
+        }
         mCards = CardBuilder(mScenarioType).getCardList()
         mRandom = Random()
         handleRandomCard()
@@ -66,7 +66,8 @@ class ResultPage : AppCompatActivity() {
 
     private fun randomlyGenerateWeakness() {
         val randomWeakness = getRandomCard() as Weakness?
-        mNumberOfTheseWeaknessesAvailable = (randomWeakness?.getNumAvailable() ?: displayCard(randomWeakness)) as Int
+        mNumberOfTheseWeaknessesAvailable = randomWeakness?.getNumAvailable() as Int
+        displayCard(randomWeakness)
     }
 
     private fun randomlyGenerateLocation() {
@@ -120,7 +121,9 @@ class ResultPage : AppCompatActivity() {
 
         override fun onAnimationEnd(animation: Animation?) {
             mFloatingButton?.setEnabled(true)
-            val chosenPosition = ceil(Math.random() * mNumberOfTheseWeaknessesAvailable).toInt()
+            var chosenPosition = ceil(Math.random() * mNumberOfTheseWeaknessesAvailable).toInt()
+            //If the card doesn't have this attribute then assume value 1 of 1
+            if(chosenPosition == 0 || mNumberOfTheseWeaknessesAvailable == 0) {chosenPosition = 1; mNumberOfTheseWeaknessesAvailable = 1;}
             mTextViewWeaknessNumber?.setText("$chosenPosition of $mNumberOfTheseWeaknessesAvailable")
         }
 
