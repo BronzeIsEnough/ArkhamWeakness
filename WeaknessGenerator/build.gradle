@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'checkstyle'
 
 android {
     compileSdkVersion 29
@@ -25,12 +26,23 @@ android {
     }
 }
 
+task checkstyle(type: Checkstyle) {
+    description 'Check code standard'
+    group 'verification'
+    configFile file('$project.rootDir/tools/checkstyle.xml')
+    source 'src'
+    include '**/*.kt'
+    exclude '**/gen/**'
+    classpath = files()
+    ignoreFailures = false
+}
+
 dependencies {
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     // For control over item selection of both touch and mouse driven selection
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
