@@ -29,7 +29,7 @@ android {
 task checkstyle(type: Checkstyle) {
     description 'Check code standard'
     group 'verification'
-    configFile file('$project.rootDir/tools/checkstyle.xml')
+    configFile file('$project.rootDir/checkstyle.xml')
     source 'src'
     include '**/*.kt'
     exclude '**/gen/**'
