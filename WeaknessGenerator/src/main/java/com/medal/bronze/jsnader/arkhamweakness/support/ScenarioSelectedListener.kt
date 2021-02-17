@@ -9,5 +9,5 @@ import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioType
  * Created by Jeremiah on 3/25/2018.
  */
 interface ScenarioSelectedListener {
-    open fun updatePage(pScenarioType: ScenarioType?)
+    fun updatePage(pScenarioType: ScenarioType?)
 }

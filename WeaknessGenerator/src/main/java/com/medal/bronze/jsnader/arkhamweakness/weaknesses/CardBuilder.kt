@@ -22,7 +22,7 @@ class CardBuilder(private val mScenarioType: ScenarioType?) {
     }
 
     private fun buildGeneralWeaknessList() {
-        for (weakness in this!!.mFullWeaknessList!!) {
+        for (weakness in this.mFullWeaknessList!!) {
             for (index in 0 until weakness?.getNumAvailable()!!) {
                 mCardList?.add(weakness)
             }
@@ -47,7 +47,7 @@ class CardBuilder(private val mScenarioType: ScenarioType?) {
     }
 
     private fun updateListWithTraits(pScenarioTraits: ArrayList<CardTrait?>?) {
-        for (weakness in this!!.mFullWeaknessList!!) {
+        for (weakness in this.mFullWeaknessList!!) {
             for (trait in pScenarioTraits!!) { //Step through each possible trait that the weakness could have.
                 if (weakness?.getCardTraits()?.contains(trait)!!) {
                     for (index in 0 until weakness.getNumAvailable()) { //If there are more than one card, add it multiple times.
@@ -60,7 +60,6 @@ class CardBuilder(private val mScenarioType: ScenarioType?) {
     }
 
     private fun setupFullWeaknessList() { //Keep alphabetical for easy reference later.
-        val cardTraits = ArrayList<CardTrait?>()
         val amnWeakness = Weakness("Amnesia", CampaignAffinity.NIGHT_OF_THE_ZEALOT, 2, R.drawable.weakness_amnesia)
         assignCardTraits(amnWeakness, ArrayList(Arrays.asList(CardTrait.MADNESS)))
         val chrWeakness = Weakness("Chronophobia", CampaignAffinity.DUNWICH_LEGACY, 2, R.drawable.weakness_chronophobia)
@@ -144,10 +143,10 @@ class CardBuilder(private val mScenarioType: ScenarioType?) {
     @Synchronized
     private fun assignCardTraits(pWeakness: Weakness?, pCardTraits: ArrayList<CardTrait?>?) {
         for (trait in pCardTraits?.let { ArrayList(it) }!!) {
-            pCardTraits?.add(trait)
+            pCardTraits.add(trait)
         }
         pWeakness?.setCardTraits(pCardTraits)
-        pCardTraits?.clear()
+        pCardTraits.clear()
     }
 
     init {
