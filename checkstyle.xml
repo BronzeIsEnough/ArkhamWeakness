@@ -11,7 +11,7 @@
   <property name="severity" value="warning"></property>
   <!-- A suppression for the checks that we would like to apply. -->
   <module name="SuppressionFilter">
-    <property name="file" value="${project.basedir}/suppressions.xml"/>
+    <property name="file" value="suppressions.xml"/>
     <property name="optional" value="true"/>
   </module>
   <!-- The checkstyle itself that is being applied. -->
