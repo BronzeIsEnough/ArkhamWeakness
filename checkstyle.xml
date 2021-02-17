@@ -9,6 +9,12 @@
 -->
 <module name="Checker">
   <property name="severity" value="warning"></property>
+  <!-- A suppression for the checks that we would like to apply. -->
+  <module name="SuppressionFilter">
+    <property name="file" value="${project.basedir}/suppressions.xml"/>
+    <property name="optional" value="true"/>
+  </module>
+  <!-- The checkstyle itself that is being applied. -->
   <module name="TreeWalker">
     <property name="tabWidth" value="4"></property>
     <module name="JavadocMethod">
