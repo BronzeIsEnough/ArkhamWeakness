@@ -10,7 +10,7 @@ import java.util.*
  * A class that is meant to build a list of scenarios that would define what should be included
  * within the ScenarioAdapter class.
  *
- * Created by Jeremiah on 3/24/2018.
+ * Created by Jeremiah on 2/23/2021.
  */
 class ScenarioBuilder {
     private var mCardTraits: ArrayList<CardTrait?>? = ArrayList()
@@ -22,6 +22,7 @@ class ScenarioBuilder {
         addUndimensionedWeakness(scenarios)
         addUndimensionedLocations(scenarios)
         addBlackStarsRise(scenarios)
+        addDepthsOfYoth(scenarios)
         return scenarios
     }
 
@@ -32,12 +33,13 @@ class ScenarioBuilder {
             ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS -> addUndimensionedWeakness(scenarios)
             ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION -> addUndimensionedLocations(scenarios)
             ScenarioType.BLACK_STARS_RISE -> addBlackStarsRise(scenarios)
+            ScenarioType.DEPTHS_OF_YOTH -> addDepthsOfYoth(scenarios)
         }
         return scenarios[0]
     }
 
     private fun addGeneralAllInclusive(pScenarios: ArrayList<Scenario?>?) {
-        val allInclusive : Scenario = Scenario(ScenarioType.GENERAL, "General Weakness", "All Inclusive", R.drawable.general_weakness)
+        val allInclusive = Scenario(ScenarioType.GENERAL, "General Weakness", "All Inclusive", R.drawable.general_weakness)
         clear()
         mCardTraits?.add(CardTrait.ALL)
         allInclusive.setTraits(mCardTraits?.let { ArrayList(it) })
@@ -71,6 +73,14 @@ class ScenarioBuilder {
         mCardTraits?.add(CardTrait.DETECTIVE)
         blackStarsRise.setTraits(mCardTraits?.let { ArrayList(it) })
         pScenarios?.add(blackStarsRise)
+    }
+
+    private fun addDepthsOfYoth(pScenarios: ArrayList<Scenario?>?) {
+        val depthsOfYoth = Scenario(ScenarioType.DEPTHS_OF_YOTH, "Depths of Yoth", "in the Forgotten Age campaign", R.drawable.forgotten_age)
+        clear()
+        mCardTraits?.add(CardTrait.INJURY)
+        depthsOfYoth.setTraits(mCardTraits?.let { ArrayList(it) })
+        pScenarios?.add(depthsOfYoth)
     }
 
     private fun clear() {
