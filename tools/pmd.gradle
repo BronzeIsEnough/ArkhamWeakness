@@ -5,12 +5,12 @@ task pmd(type: Pmd) {
     group 'verification'
     ruleSetFiles = files("$project.rootDir/tools/rules-pmd.xml")
     source = fileTree('src/main/java')
-    include '**/*.java'
+    include '**/*.java/*.kt'
     exclude '**/gen/**'
 
     reports {
         xml.enabled = false
         html.enabled = true
-        html.destination(file("$project.buildDir/outputs/pmd/html"))
+        html.destination(file("$project.rootDir/outputs/pmd/html"))
     }
 }

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'checkstyle'
 apply from: "$project.rootDir/tools/pmd.gradle"
-apply from: "$project.rootDir/tools/findbugs.gradle"
+//apply from: "$project.rootDir/tools/findbugs.gradle"
 
 android {
     compileSdkVersion 29
