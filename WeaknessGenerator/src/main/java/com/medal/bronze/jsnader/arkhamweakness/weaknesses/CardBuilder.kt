@@ -47,8 +47,15 @@ class CardBuilder(private val mScenarioType: ScenarioType?) {
     }
 
     private fun buildDepthsOfYothWeaknessList() {
-        val traits = ScenarioBuilder().getScenario(ScenarioType.DEPTHS_OF_YOTH)?.getTraits()
+        val traits = ScenarioBuilder().getScenario(ScenarioType.DEPTHS_OF_YOTH_WEAKNESS)?.getTraits()
         updateListWithTraits(traits)
+    }
+
+    private fun buildDepthsOfYothLocationList() {
+        val locationList = ScenarioBuilder().getScenario(ScenarioType.DEPTHS_OF_YOTH_LOCATION)?.getLocations()
+        for (location in locationList!!) {
+            mCardList?.add(location)
+        }
     }
 
     private fun updateListWithTraits(pScenarioTraits: ArrayList<CardTrait?>?) {
@@ -190,7 +197,8 @@ class CardBuilder(private val mScenarioType: ScenarioType?) {
             ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS -> buildUndimensionedWeaknessList()
             ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION -> buildUndimensionedLocationList()
             ScenarioType.BLACK_STARS_RISE -> buildBlackStarsRiseWeaknessList()
-            ScenarioType.DEPTHS_OF_YOTH -> buildDepthsOfYothWeaknessList()
+            ScenarioType.DEPTHS_OF_YOTH_WEAKNESS -> buildDepthsOfYothWeaknessList()
+            ScenarioType.DEPTHS_OF_YOTH_LOCATION -> buildDepthsOfYothLocationList()
         }
     }
 }
