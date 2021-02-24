@@ -46,6 +46,11 @@ class CardBuilder(private val mScenarioType: ScenarioType?) {
         updateListWithTraits(traits)
     }
 
+    private fun buildThePallidMaskWeaknessList() {
+        val traits = ScenarioBuilder().getScenario(ScenarioType.THE_PALLID_MASK)?.getTraits()
+        updateListWithTraits(traits)
+    }
+
     private fun buildDepthsOfYothWeaknessList() {
         val traits = ScenarioBuilder().getScenario(ScenarioType.DEPTHS_OF_YOTH_WEAKNESS)?.getTraits()
         updateListWithTraits(traits)
@@ -197,6 +202,7 @@ class CardBuilder(private val mScenarioType: ScenarioType?) {
             ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS -> buildUndimensionedWeaknessList()
             ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION -> buildUndimensionedLocationList()
             ScenarioType.BLACK_STARS_RISE -> buildBlackStarsRiseWeaknessList()
+            ScenarioType.THE_PALLID_MASK -> buildThePallidMaskWeaknessList()
             ScenarioType.DEPTHS_OF_YOTH_WEAKNESS -> buildDepthsOfYothWeaknessList()
             ScenarioType.DEPTHS_OF_YOTH_LOCATION -> buildDepthsOfYothLocationList()
         }

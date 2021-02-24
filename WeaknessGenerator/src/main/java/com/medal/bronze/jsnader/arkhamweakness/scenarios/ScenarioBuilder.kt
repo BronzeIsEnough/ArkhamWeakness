@@ -22,6 +22,7 @@ class ScenarioBuilder {
         addUndimensionedWeakness(scenarios)
         addUndimensionedLocations(scenarios)
         addBlackStarsRise(scenarios)
+        addPallidMask(scenarios)
         addDepthsOfYothWeakness(scenarios)
         addDepthsOfYothLocations(scenarios)
         return scenarios
@@ -34,6 +35,7 @@ class ScenarioBuilder {
             ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS -> addUndimensionedWeakness(scenarios)
             ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION -> addUndimensionedLocations(scenarios)
             ScenarioType.BLACK_STARS_RISE -> addBlackStarsRise(scenarios)
+            ScenarioType.THE_PALLID_MASK -> addPallidMask(scenarios)
             ScenarioType.DEPTHS_OF_YOTH_WEAKNESS -> addDepthsOfYothWeakness(scenarios)
             ScenarioType.DEPTHS_OF_YOTH_LOCATION -> addDepthsOfYothLocations(scenarios)
         }
@@ -75,6 +77,15 @@ class ScenarioBuilder {
         mCardTraits?.add(CardTrait.DETECTIVE)
         blackStarsRise.setTraits(mCardTraits?.let { ArrayList(it) })
         pScenarios?.add(blackStarsRise)
+    }
+
+    private fun addPallidMask(pScenarios: ArrayList<Scenario?>?) {
+        val pallidMask = Scenario(ScenarioType.THE_PALLID_MASK, "The Pallid Mask", "in the Path to Carcosa campaign", R.drawable.black_stars_rise)
+        clear()
+        mCardTraits?.add(CardTrait.MADNESS)
+        mCardTraits?.add(CardTrait.PACT)
+        pallidMask.setTraits(mCardTraits?.let {ArrayList(it)})
+        pScenarios?.add(pallidMask)
     }
 
     private fun addDepthsOfYothWeakness(pScenarios: ArrayList<Scenario?>?) {
