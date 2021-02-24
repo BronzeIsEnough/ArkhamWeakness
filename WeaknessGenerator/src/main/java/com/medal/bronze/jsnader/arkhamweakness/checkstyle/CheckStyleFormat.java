@@ -1,7 +1,6 @@
 package com.medal.bronze.jsnader.arkhamweakness.checkstyle;
 
 import android.util.Log;
-
 import java.util.Random;
 
 /**
