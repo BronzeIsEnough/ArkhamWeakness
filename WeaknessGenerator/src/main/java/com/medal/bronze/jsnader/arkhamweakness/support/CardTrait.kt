@@ -5,8 +5,25 @@ package com.medal.bronze.jsnader.arkhamweakness.support
  * referenced by individuals and used to filter whether or not it should be considered for
  * inclusion in the weakness selection process.
  *
- * Created by Jeremiah on 3/24/2018.
+ * Created by Jeremiah on 2/23/2021.
  */
 enum class CardTrait {
-    ALL, CRIMINAL, CULTIST, CURSE, DETECTIVE, FLAW, HUMANOID, INJURY, MADNESS, MONSTER, MYSTERY, OMEN, PACT, SILVER_TWILIGHT, TALENT, TAROT
+    ALL,
+    CRIMINAL,
+    CULTIST,
+    CURSE,
+    DETECTIVE,
+    ENDTIMES,
+    FLAW,
+    FLORA,
+    HUMANOID,
+    INJURY,
+    MADNESS,
+    MONSTER,
+    MYSTERY,
+    OMEN,
+    PACT,
+    SILVER_TWILIGHT,
+    TALENT,
+    TAROT
 }

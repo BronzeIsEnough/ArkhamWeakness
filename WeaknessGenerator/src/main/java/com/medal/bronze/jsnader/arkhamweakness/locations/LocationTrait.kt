@@ -1,5 +1,6 @@
 package com.medal.bronze.jsnader.arkhamweakness.locations
 
 enum class LocationTrait {
-    DUNWICH
+    DUNWICH,
+    FORGOTTEN_AGE
 }
