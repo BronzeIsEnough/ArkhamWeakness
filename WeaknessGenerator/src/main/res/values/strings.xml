@@ -3,5 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="adapter_position">AdapterPosition</string>
     <string name="scenario_type">ScenarioType</string>
-    <string name="content_description_weakness">Defines a weakness card for the Arkham Horror LCG</string>
+    <string name="content_description_weakness">
+        Defines a weakness card for the Arkham Horror LCG</string>
 </resources>

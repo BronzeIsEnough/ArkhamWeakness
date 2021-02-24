@@ -1,0 +1,17 @@
+apply plugin: 'checkstyle'
+
+task checkstyle(type: Checkstyle) {
+    description 'Check for source code style compliance.'
+    group 'verification'
+    configFile file("$project.rootDir/checkstyle.xml")
+    source 'src'
+    include '**/*.kt/*.java'
+    exclude '**/gen/**'
+    classpath = files()
+    ignoreFailures = false
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        html.destination(file("$project.rootDir/outputs/checkstyle/checkstyle-output.html"))
+    }
+}

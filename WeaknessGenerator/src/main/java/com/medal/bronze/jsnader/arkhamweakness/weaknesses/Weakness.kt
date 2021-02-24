@@ -12,7 +12,11 @@ import java.util.*
  *
  * Created by Jeremiah on 3/24/2018.
  */
-class Weakness(pName: String?, pSetAffinity: CampaignAffinity?, pNumAvailable: Int, pDrawableResource: Int) : Card() {
+class Weakness(pName: String?,
+               pSetAffinity: CampaignAffinity?,
+               pNumAvailable: Int,
+               pDrawableResource: Int) : Card() {
+
     private val mName: String?
     private val mSetAffinity: CampaignAffinity?
     private val mNumAvailForSet //1 or 2 typically
