@@ -11,6 +11,8 @@ import java.util.Random;
  * be working on in the future.
  */
 public final class CheckStyleFormat {
+    // TODO: Add additional check and enforce them.
+    // TODO: Make sure that the gradlew works from checkstyle/pmd/findbugs
     /** An exposed name that other classes can use. */
     public static final String CHECK_PUB_NAME = "";
     /** Another name that is not exposed but can only work in this order "below" public. */
