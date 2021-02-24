@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "https://home.enea.com/dtds/,DanaInfo=www.puppycrawl.com,CT=dtd+configuration_1_3.dtd">
+<!DOCTYPE module PUBLIC
+    "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+    "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <!--
-    This configuration file was written by the eclipse-cs plugin configuration editor
--->
-<!--
-    Checkstyle-Configuration: Android checkstyle by Enea
-    Description: none
+    Checkstyle-Configuration: A "java" style enforcement for Jeremiah Snader
+    Description: Work in progress of implementing style guidelines for java projects.
 -->
 <module name="Checker">
   <property name="severity" value="warning"></property>
+  <!-- A suppression for the checks that we would like to apply. -->
+  <module name="SuppressionFilter">
+    <property name="file" value="suppressions.xml"/>
+    <property name="optional" value="true"/>
+  </module>
+  <!-- The checkstyle itself that is being applied. -->
   <module name="TreeWalker">
     <property name="tabWidth" value="4"></property>
     <module name="JavadocMethod">

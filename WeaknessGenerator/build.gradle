@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'checkstyle'
+apply from: "$project.rootDir/tools/pmd.gradle"
+//apply from: "$project.rootDir/tools/findbugs.gradle"
 
 android {
     compileSdkVersion 29
@@ -29,9 +31,9 @@ android {
 }
 
 task checkstyle(type: Checkstyle) {
-    description 'Check code standard'
+    description 'Check for source code style compliance.'
     group 'verification'
-    configFile file('$project.rootDir/checkstyle.xml')
+    configFile file("$project.rootDir/checkstyle.xml")
     source 'src'
     include '**/*.kt'
     exclude '**/gen/**'

@@ -25,6 +25,8 @@ import kotlin.math.ceil
  * Created by Jeremiah on 3/24/2018.
  */
 class ResultPage : AppCompatActivity() {
+    private val STEPS_OF_YOTH = "Steps of Yoth"
+    private val YOTH_LOC_MAX = 5;
     private var mScenarioType: ScenarioType? = null
     private var mCards: ArrayList<Card?>? = null
     private var mRandom: Random? = null
@@ -33,6 +35,7 @@ class ResultPage : AppCompatActivity() {
     private var mTextViewWeaknessNumber: TextView? = null
     private var mAnimationSet: AnimationSet? = null
     private var mNumberOfTheseWeaknessesAvailable = 0
+
     override fun onCreate(pSavedInstanceState: Bundle?) {
         super.onCreate(pSavedInstanceState)
         setContentView(R.layout.activity_result_screen)
@@ -44,8 +47,8 @@ class ResultPage : AppCompatActivity() {
             handleRandomCard()
             provideHapticFeedback()
         }
-        mCards = CardBuilder(mScenarioType).getCardList()
         mRandom = Random()
+        mCards = getCardList()
         handleRandomCard()
     }
 
@@ -59,7 +62,26 @@ class ResultPage : AppCompatActivity() {
         }
     }
 
+    private fun getCardList() : ArrayList<Card?>? {
+        var cards : ArrayList<Card?>? = CardBuilder(mScenarioType).getCardList()
+        // This scenario wants a random subset of locations.  So we create a subset of locations to
+        // start with that MUST include the Steps of Yoth in it.
+        if (mScenarioType == ScenarioType.DEPTHS_OF_YOTH_LOCATION) {
+            while(cards?.size!! > YOTH_LOC_MAX) {
+                val index = mRandom?.nextInt(cards.size)
+                val card : Card = index?.let { cards.get(it) }!!
+                if (card is Location && !card.mName.equals(STEPS_OF_YOTH)) {
+                    cards.remove(card)
+                }
+            }
+        }
+        return cards
+    }
+
     private fun handleRandomCard() {
+        // There are cases where we are removing entries, so make sure we have one to start with.
+        if (mCards?.size!! <= 0) return;
+        // If cards are available, then continue.
         val availableCard = mCards?.get(0)
         if (mAnimationSet == null) {
             setupAnimation()
@@ -78,7 +100,15 @@ class ResultPage : AppCompatActivity() {
     }
 
     private fun randomlyGenerateLocation() {
-        val randomLocation = getRandomCard() as Location?
+        var randomLocation = getRandomCard() as Location?
+        // As we set one up, we need to remove another that has already been used.
+        if (mScenarioType == ScenarioType.DEPTHS_OF_YOTH_LOCATION) {
+            // Per the scenario, you can't have the initial location be the steps.
+            while(mCards?.size == YOTH_LOC_MAX && randomLocation?.mName.equals(STEPS_OF_YOTH)) {
+                randomLocation = getRandomCard() as Location?
+            }
+            mCards?.remove(randomLocation)
+        }
         displayCard(randomLocation)
     }
 
