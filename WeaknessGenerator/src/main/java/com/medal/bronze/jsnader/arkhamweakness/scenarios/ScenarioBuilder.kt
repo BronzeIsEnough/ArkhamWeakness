@@ -59,7 +59,7 @@ class ScenarioBuilder {
     }
 
     private fun addUndimensionedLocations(pScenarios: ArrayList<Scenario?>?) {
-        val undimensionedLocs = Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION, "Undimensioned & Unseen - Location", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen)
+        val undimensionedLocs = Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION, "Undimensioned & Unseen - Location Movement", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen)
         clear()
         mLocations = LocationBuilder.getInstance()?.getUnseenLocations()
         undimensionedLocs.setLocations(mLocations)
