@@ -22,7 +22,7 @@ import java.util.*
 import kotlin.math.ceil
 
 /**
- * Created by Jeremiah on 3/24/2018.
+ * Created by Jeremiah on 2/25/2021.
  */
 class ResultPage : AppCompatActivity() {
     private val STEPS_OF_YOTH = "Steps of Yoth"

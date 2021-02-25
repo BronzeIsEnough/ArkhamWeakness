@@ -21,7 +21,7 @@ public final class CheckStyleFormat {
     /** Private members need to private, but can be exposed via a getter as needed. */
     private final String mCheckPrivName;
     /** Protected members need to be private, but can be exposed via protected getters. */
-    private String mCheckProtName;
+    private String heckProtName;
 
     // Since not used by another class a check tells us that we should have this as a private
     // constructor.
