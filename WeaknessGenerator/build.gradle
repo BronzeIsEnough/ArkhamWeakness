@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+//project.extensions.extraProperties.set('SpotBugsTask', 'com.github.spotbugs.SpotBugsTask')
 apply from: "$project.rootDir/tools/checkstyle.gradle"
 apply from: "$project.rootDir/tools/pmd.gradle"
-apply from: "$project.rootDir/tools/findbugs.gradle"
+//apply from: "$project.rootDir/tools/spotbugs.gradle"
 
 android {
     compileSdkVersion 29
@@ -41,6 +42,14 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
 repositories {
     mavenCentral()
+}
+
+// adds checkstyle task to existing check task
+afterEvaluate {
+    if (project.tasks.getByName("check")) {
+        check.dependsOn('checkstyle')
+    }
 }

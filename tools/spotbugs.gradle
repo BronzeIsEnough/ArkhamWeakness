@@ -1,0 +1,33 @@
+dependencies {
+    spotbugs configurations.spotbugsPlugins.dependencies
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.8.0'
+}
+
+def reportsDir = "$project.rootDir/outputs"
+
+spotbugs {
+    toolVersion = "$spotbugs_version"
+    ignoreFailures = false
+
+    effort = "min"
+    reportLevel = "medium"
+
+    excludeFilter = new File("$project.rootDir/tools/findbugs-android-exclude.xml")
+}
+
+tasks.register("spotbugs", SpotBugsTask) {
+    dependsOn 'assemble'
+    group = "verification"
+    classes = files("$projectDir.absolutePath/build/intermediates/app_classes/debug")
+
+    source = fileTree('src/main/java')
+    reports {
+        xml.enabled = true
+        xml {
+            destination file("$reportsDir/spotbugs/spotbugs.xml")
+        }
+        html.enabled = true
+    }
+
+    classpath = files()
+}
