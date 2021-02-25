@@ -43,7 +43,11 @@ class ScenarioBuilder {
     }
 
     private fun addGeneralAllInclusive(pScenarios: ArrayList<Scenario?>?) {
-        val allInclusive = Scenario(ScenarioType.GENERAL, "General Weakness", "All Inclusive", R.drawable.general_weakness)
+        val allInclusive =
+                Scenario(ScenarioType.GENERAL,
+                        "General Weakness",
+                        "All Inclusive",
+                        R.drawable.general_weakness)
         clear()
         mCardTraits?.add(CardTrait.ALL)
         allInclusive.setTraits(mCardTraits?.let { ArrayList(it) })
@@ -51,7 +55,11 @@ class ScenarioBuilder {
     }
 
     private fun addUndimensionedWeakness(pScenarios: ArrayList<Scenario?>?) {
-        val undimensionedWkns = Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS, "Undimensioned & Unseen - Weakness", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen)
+        val undimensionedWkns =
+                Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS,
+                        "Undimensioned & Unseen - Weakness",
+                        "in the Dunwich Horror campaign",
+                        R.drawable.undimensioned_and_unseen)
         clear()
         mCardTraits?.add(CardTrait.MADNESS)
         mCardTraits?.add(CardTrait.INJURY)
@@ -61,7 +69,11 @@ class ScenarioBuilder {
     }
 
     private fun addUndimensionedLocations(pScenarios: ArrayList<Scenario?>?) {
-        val undimensionedLocs = Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION, "Undimensioned & Unseen - Location Movement", "in the Dunwich Horror campaign", R.drawable.undimensioned_and_unseen)
+        val undimensionedLocs =
+                Scenario(ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION,
+                        "Undimensioned & Unseen - Location Movement",
+                        "in the Dunwich Horror campaign",
+                        R.drawable.undimensioned_and_unseen)
         clear()
         mLocations = LocationBuilder.getInstance()?.getUnseenLocations()
         undimensionedLocs.setLocations(mLocations)
@@ -69,7 +81,11 @@ class ScenarioBuilder {
     }
 
     private fun addBlackStarsRise(pScenarios: ArrayList<Scenario?>?) {
-        val blackStarsRise = Scenario(ScenarioType.BLACK_STARS_RISE, "Black Stars Rise", "in the Path to Carcosa campaign", R.drawable.black_stars_rise)
+        val blackStarsRise =
+                Scenario(ScenarioType.BLACK_STARS_RISE,
+                        "Black Stars Rise",
+                        "in the Path to Carcosa campaign",
+                        R.drawable.black_stars_rise)
         clear()
         mCardTraits?.add(CardTrait.MADNESS)
         mCardTraits?.add(CardTrait.PACT)
@@ -80,7 +96,11 @@ class ScenarioBuilder {
     }
 
     private fun addPallidMask(pScenarios: ArrayList<Scenario?>?) {
-        val pallidMask = Scenario(ScenarioType.THE_PALLID_MASK, "The Pallid Mask", "in the Path to Carcosa campaign", R.drawable.black_stars_rise)
+        val pallidMask =
+                Scenario(ScenarioType.THE_PALLID_MASK,
+                "The Pallid Mask",
+                "in the Path to Carcosa campaign",
+                R.drawable.black_stars_rise)
         clear()
         mCardTraits?.add(CardTrait.MADNESS)
         mCardTraits?.add(CardTrait.PACT)
@@ -89,7 +109,11 @@ class ScenarioBuilder {
     }
 
     private fun addDepthsOfYothWeakness(pScenarios: ArrayList<Scenario?>?) {
-        val depthsOfYoth = Scenario(ScenarioType.DEPTHS_OF_YOTH_WEAKNESS, "Depths of Yoth - Failure Weakness", "in the Forgotten Age campaign", R.drawable.forgotten_age)
+        val depthsOfYoth =
+                Scenario(ScenarioType.DEPTHS_OF_YOTH_WEAKNESS,
+                        "Depths of Yoth - Failure Weakness",
+                        "in the Forgotten Age campaign",
+                        R.drawable.forgotten_age)
         clear()
         mCardTraits?.add(CardTrait.INJURY)
         depthsOfYoth.setTraits(mCardTraits?.let { ArrayList(it) })
@@ -97,7 +121,11 @@ class ScenarioBuilder {
     }
 
     private fun addDepthsOfYothLocations(pScenarios: ArrayList<Scenario?>?) {
-        val depthsLoc = Scenario(ScenarioType.DEPTHS_OF_YOTH_LOCATION, "Depths of Yoth - Location Placement", "in the Forgotten Age campaign", R.drawable.forgotten_age)
+        val depthsLoc =
+                Scenario(ScenarioType.DEPTHS_OF_YOTH_LOCATION,
+                        "Depths of Yoth - Location Placement",
+                        "in the Forgotten Age campaign",
+                        R.drawable.forgotten_age)
         clear()
         mLocations = LocationBuilder.getInstance()?.getForgottenAgeLocations()
         depthsLoc.setLocations(mLocations)

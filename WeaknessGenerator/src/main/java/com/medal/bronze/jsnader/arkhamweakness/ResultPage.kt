@@ -22,7 +22,7 @@ import java.util.*
 import kotlin.math.ceil
 
 /**
- * Created by Jeremiah on 3/24/2018.
+ * Created by Jeremiah on 2/25/2021.
  */
 class ResultPage : AppCompatActivity() {
     private val STEPS_OF_YOTH = "Steps of Yoth"
@@ -41,7 +41,8 @@ class ResultPage : AppCompatActivity() {
         setContentView(R.layout.activity_result_screen)
         mImageViewCard = findViewById<View?>(R.id.imageViewCard) as ImageView
         mTextViewWeaknessNumber = findViewById<View?>(R.id.textViewDisplayNumber) as TextView
-        mScenarioType = intent.getSerializableExtra(getString(R.string.scenario_type)) as ScenarioType
+        mScenarioType =
+                intent.getSerializableExtra(getString(R.string.scenario_type)) as ScenarioType
         mFloatingButton = findViewById<View?>(R.id.fab) as FloatingActionButton
         mFloatingButton!!.setOnClickListener {
             handleRandomCard()
@@ -119,7 +120,12 @@ class ResultPage : AppCompatActivity() {
 
     private fun setupAnimation() {
         mAnimationSet = AnimationSet(true)
-        val rotateAnimation = RotateAnimation(0F, 360F, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        val rotateAnimation =
+                RotateAnimation(0F,
+                        360F, Animation.RELATIVE_TO_SELF,
+                        0.5f,
+                        Animation.RELATIVE_TO_SELF,
+                        0.5f)
         rotateAnimation.duration = 1000
         rotateAnimation.interpolator = LinearInterpolator()
         mAnimationSet!!.addAnimation(rotateAnimation)
@@ -161,7 +167,10 @@ class ResultPage : AppCompatActivity() {
             mFloatingButton?.isEnabled = true
             var chosenPosition = ceil(Math.random() * mNumberOfTheseWeaknessesAvailable).toInt()
             //If the card doesn't have this attribute then assume value 1 of 1
-            if(chosenPosition == 0 || mNumberOfTheseWeaknessesAvailable == 0) {chosenPosition = 1; mNumberOfTheseWeaknessesAvailable = 1;}
+            if (chosenPosition == 0 || mNumberOfTheseWeaknessesAvailable == 0) {
+                chosenPosition = 1;
+                mNumberOfTheseWeaknessesAvailable = 1;
+            }
             mTextViewWeaknessNumber?.text = "$chosenPosition of $mNumberOfTheseWeaknessesAvailable"
         }
 

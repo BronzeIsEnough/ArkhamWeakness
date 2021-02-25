@@ -10,7 +10,11 @@ import java.util.*
  *
  * Created by Jeremiah on 3/24/2018.
  */
-class Scenario(private val mScenarioType: ScenarioType?, private val mScenarioTitle: String?, private val mCampaignTitle: String?, private val mImageResource: Int) {
+class Scenario(private val mScenarioType: ScenarioType?,
+               private val mScenarioTitle: String?,
+               private val mCampaignTitle: String?,
+               private val mImageResource: Int) {
+
     private var mTraits: ArrayList<CardTrait?>? = null
     private var mLocations: ArrayList<Location?>? = null
 
