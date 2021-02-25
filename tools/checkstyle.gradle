@@ -11,8 +11,9 @@ task checkstyle(type: Checkstyle) {
     ignoreFailures = false
     showViolations = true
     reports {
-        xml.enabled = false
+        xml.enabled = true
         html.enabled = true
+        xml.destination(file("$project.rootDir/outputs/checkstyle/checkstyle-output.xml"))
         html.destination(file("$project.rootDir/outputs/checkstyle/checkstyle-output.html"))
     }
 }
