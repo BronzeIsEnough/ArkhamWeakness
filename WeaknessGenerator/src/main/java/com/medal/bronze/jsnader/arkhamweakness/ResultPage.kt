@@ -1,3 +1,20 @@
+/**
+ * Copyright 2018-2021 Jeremiah Snader
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ * associated documentation files (the "Software"), to deal in the Software without restriction,
+ * including without limitation the rights to use, copy, modify, merge, publish, distribute,
+ * sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or
+ * substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+ * NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 package com.medal.bronze.jsnader.arkhamweakness
 
 import android.content.Context
@@ -29,7 +46,7 @@ class ResultPage : AppCompatActivity() {
     private val STEPS_OF_YOTH = "Steps of Yoth"
     private val YOTH_LOC_MAX = 5;
     private var mScenarioType: ScenarioType? = null
-    private var mCards: ArrayList<Card?>? = null
+    private var mCards: ArrayList<Card>? = null
     private var mLocations: ArrayList<Location?>? = null
     private var mRandom: Random? = null
     private var mFloatingButton: FloatingActionButton? = null
@@ -66,12 +83,12 @@ class ResultPage : AppCompatActivity() {
         }
     }
 
-    private fun getCardList() : ArrayList<Card?>? {
-        var cards : ArrayList<Card?>? = CardBuilder(mScenarioType).getCardList()
+    private fun getCardList() : ArrayList<Card> {
+        var cards : ArrayList<Card> = CardBuilder(mScenarioType).getCardList()
         // This scenario wants a random subset of locations.  So we create a subset of locations to
         // start with that MUST include the Steps of Yoth in it.
         if (mScenarioType == ScenarioType.DEPTHS_OF_YOTH_LOCATION) {
-            while(cards?.size!! > YOTH_LOC_MAX) {
+            while(cards.size > YOTH_LOC_MAX) {
                 val index = mRandom?.nextInt(cards.size)
                 val card : Card = index?.let { cards.get(it) }!!
                 if (card is Location && !card.mName.equals(STEPS_OF_YOTH)) {
@@ -107,14 +124,14 @@ class ResultPage : AppCompatActivity() {
         // TODO: Broken for Forgotten Age.  We would need to add in another UI element that tells
         //       the app what location that a search is being done from.  Perhaps a card view on
         //       the side or something like that in order for this to function properly.
-        var randomLocation = getRandomCard() as Location?
-        var hasConnection = false;
+        var randomLocation: Location = getRandomCard() as Location
+//        var hasConnection = false;
         // As we set one up, we need to remove another that has already been used.
         if (mScenarioType == ScenarioType.DEPTHS_OF_YOTH_LOCATION) {
             // Per the scenario, you can't have the initial location be the steps.
             while(mCards?.size == YOTH_LOC_MAX
-                    && randomLocation?.mName.equals(STEPS_OF_YOTH)) {
-                randomLocation = getRandomCard() as Location?
+                    && randomLocation.mName.equals(STEPS_OF_YOTH)) {
+                randomLocation = getRandomCard() as Location
             }
             // Needs a decision point of what location the search is being done from.  Perhaps an
             // error also if a search is done from a location with no more connectivity.  That way

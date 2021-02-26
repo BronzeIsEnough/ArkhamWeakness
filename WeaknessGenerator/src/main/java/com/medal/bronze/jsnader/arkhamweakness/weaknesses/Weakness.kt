@@ -1,3 +1,20 @@
+/**
+ * Copyright 2018-2021 Jeremiah Snader
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ * associated documentation files (the "Software"), to deal in the Software without restriction,
+ * including without limitation the rights to use, copy, modify, merge, publish, distribute,
+ * sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or
+ * substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+ * NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 package com.medal.bronze.jsnader.arkhamweakness.weaknesses
 
 import com.medal.bronze.jsnader.arkhamweakness.Card
@@ -12,21 +29,29 @@ import java.util.*
  *
  * Created by Jeremiah on 3/24/2018.
  */
-class Weakness(pName: String?,
-               pSetAffinity: CampaignAffinity?,
+class Weakness(pName: String,
+               pSetAffinity: CampaignAffinity,
                pNumAvailable: Int,
                pDrawableResource: Int) : Card() {
 
-    private val mName: String?
-    private val mSetAffinity: CampaignAffinity?
-    private val mNumAvailForSet //1 or 2 typically
-            : Int
-    private var mCardTraits: ArrayList<CardTrait?>? = null
-    fun setCardTraits(pCardTraits: ArrayList<CardTrait?>?) {
+    private val mName: String
+    private val mSetAffinity: CampaignAffinity
+    private val mNumAvailForSet: Int //1 or 2 typically
+    private var mCardTraits: ArrayList<CardTrait>? = null
+
+    init {
+        mCardType = CardType.WEAKNESS
+        mName = pName
+        mSetAffinity = pSetAffinity
+        mNumAvailForSet = pNumAvailable
+        mDrawableResource = pDrawableResource
+    }
+
+    fun setCardTraits(pCardTraits: ArrayList<CardTrait>?) {
         mCardTraits = pCardTraits?.let { ArrayList(it) }
     }
 
-    fun getCardTraits(): ArrayList<CardTrait?>? {
+    fun getCardTraits(): ArrayList<CardTrait>? {
         return mCardTraits
     }
 
@@ -36,13 +61,5 @@ class Weakness(pName: String?,
 
     override fun getDrawableResource(): Int {
         return mDrawableResource
-    }
-
-    init {
-        mCardType = CardType.WEAKNESS
-        mName = pName
-        mSetAffinity = pSetAffinity
-        mNumAvailForSet = pNumAvailable
-        mDrawableResource = pDrawableResource
     }
 }

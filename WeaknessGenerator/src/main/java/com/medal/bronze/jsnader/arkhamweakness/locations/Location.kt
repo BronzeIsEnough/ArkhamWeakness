@@ -14,7 +14,6 @@
  * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
  * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- * // TODO: apply all the copyrights to the files in the project.
  */
 package com.medal.bronze.jsnader.arkhamweakness.locations
 
@@ -30,14 +29,14 @@ import kotlin.collections.ArrayList
  *
  * @author Jeremiah Snader
  */
-class Location(pName: String?,
+class Location(pName: String,
                pDrawableResource: Int,
-               pLocationTraits: ArrayList<LocationTrait?>?,
+               pLocationTraits: ArrayList<LocationTrait>,
                pLocationValue: ConnectionType,
                pLocationConnections: ArrayList<ConnectionType>) : Card() {
 
-    var mName: String?
-    var mLocationTraits: ArrayList<LocationTrait?>?
+    var mName: String
+    var mLocationTraits: ArrayList<LocationTrait>
     val mLocType: ConnectionType
     var mConnections: ArrayList<ConnectionType>
 
