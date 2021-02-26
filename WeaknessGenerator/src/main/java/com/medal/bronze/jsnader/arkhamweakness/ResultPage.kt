@@ -19,16 +19,18 @@ import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioType
 import com.medal.bronze.jsnader.arkhamweakness.weaknesses.CardBuilder
 import com.medal.bronze.jsnader.arkhamweakness.weaknesses.Weakness
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.ceil
 
 /**
- * Created by Jeremiah on 3/24/2018.
+ * Created by Jeremiah on 2/25/2021.
  */
 class ResultPage : AppCompatActivity() {
     private val STEPS_OF_YOTH = "Steps of Yoth"
     private val YOTH_LOC_MAX = 5;
     private var mScenarioType: ScenarioType? = null
     private var mCards: ArrayList<Card?>? = null
+    private var mLocations: ArrayList<Location?>? = null
     private var mRandom: Random? = null
     private var mFloatingButton: FloatingActionButton? = null
     private var mImageViewCard: ImageView? = null
@@ -41,7 +43,8 @@ class ResultPage : AppCompatActivity() {
         setContentView(R.layout.activity_result_screen)
         mImageViewCard = findViewById<View?>(R.id.imageViewCard) as ImageView
         mTextViewWeaknessNumber = findViewById<View?>(R.id.textViewDisplayNumber) as TextView
-        mScenarioType = intent.getSerializableExtra(getString(R.string.scenario_type)) as ScenarioType
+        mScenarioType =
+                intent.getSerializableExtra(getString(R.string.scenario_type)) as ScenarioType
         mFloatingButton = findViewById<View?>(R.id.fab) as FloatingActionButton
         mFloatingButton!!.setOnClickListener {
             handleRandomCard()
@@ -49,6 +52,7 @@ class ResultPage : AppCompatActivity() {
         }
         mRandom = Random()
         mCards = getCardList()
+        mLocations = ArrayList()
         handleRandomCard()
     }
 
@@ -100,13 +104,30 @@ class ResultPage : AppCompatActivity() {
     }
 
     private fun randomlyGenerateLocation() {
+        // TODO: Broken for Forgotten Age.  We would need to add in another UI element that tells
+        //       the app what location that a search is being done from.  Perhaps a card view on
+        //       the side or something like that in order for this to function properly.
         var randomLocation = getRandomCard() as Location?
+        var hasConnection = false;
         // As we set one up, we need to remove another that has already been used.
         if (mScenarioType == ScenarioType.DEPTHS_OF_YOTH_LOCATION) {
             // Per the scenario, you can't have the initial location be the steps.
-            while(mCards?.size == YOTH_LOC_MAX && randomLocation?.mName.equals(STEPS_OF_YOTH)) {
+            while(mCards?.size == YOTH_LOC_MAX
+                    && randomLocation?.mName.equals(STEPS_OF_YOTH)) {
                 randomLocation = getRandomCard() as Location?
             }
+            // Needs a decision point of what location the search is being done from.  Perhaps an
+            // error also if a search is done from a location with no more connectivity.  That way
+            // an exploration can fail as well.
+//            while(mCards?.size!! < YOTH_LOC_MAX && !hasConnection) {
+//                if (mLocations?.get(mLocations!!.size - 1)?.getConnections()?.contains(
+//                    randomLocation?.getLocationSymbol())!!) {
+//                    // A location exists that connects to a location in play.
+//                    hasConnection = true;
+//                    break;
+//                }
+//            }
+            mLocations?.add(randomLocation);
             mCards?.remove(randomLocation)
         }
         displayCard(randomLocation)
@@ -119,7 +140,12 @@ class ResultPage : AppCompatActivity() {
 
     private fun setupAnimation() {
         mAnimationSet = AnimationSet(true)
-        val rotateAnimation = RotateAnimation(0F, 360F, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        val rotateAnimation =
+                RotateAnimation(0F,
+                        360F, Animation.RELATIVE_TO_SELF,
+                        0.5f,
+                        Animation.RELATIVE_TO_SELF,
+                        0.5f)
         rotateAnimation.duration = 1000
         rotateAnimation.interpolator = LinearInterpolator()
         mAnimationSet!!.addAnimation(rotateAnimation)
@@ -161,7 +187,10 @@ class ResultPage : AppCompatActivity() {
             mFloatingButton?.isEnabled = true
             var chosenPosition = ceil(Math.random() * mNumberOfTheseWeaknessesAvailable).toInt()
             //If the card doesn't have this attribute then assume value 1 of 1
-            if(chosenPosition == 0 || mNumberOfTheseWeaknessesAvailable == 0) {chosenPosition = 1; mNumberOfTheseWeaknessesAvailable = 1;}
+            if (chosenPosition == 0 || mNumberOfTheseWeaknessesAvailable == 0) {
+                chosenPosition = 1;
+                mNumberOfTheseWeaknessesAvailable = 1;
+            }
             mTextViewWeaknessNumber?.text = "$chosenPosition of $mNumberOfTheseWeaknessesAvailable"
         }
 
