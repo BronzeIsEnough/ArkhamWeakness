@@ -125,6 +125,7 @@ class CardBuilder(mScenarioType: ScenarioType?) {
                 CampaignAffinity.NIGHT_OF_THE_ZEALOT,
                 1,
                 R.drawable.weakness_hypochondria)
+        assignCardTraits(hypWeakness, ArrayList(Arrays.asList(CardTrait.MADNESS)))
         mFullWeaknessList.add(hypWeakness)
         val mobWeakness = Weakness("Mob Enforcer",
                 CampaignAffinity.NIGHT_OF_THE_ZEALOT,
