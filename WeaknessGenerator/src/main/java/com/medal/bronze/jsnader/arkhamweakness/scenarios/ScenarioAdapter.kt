@@ -77,6 +77,7 @@ class ScenarioAdapter(
                     pView.findViewById<View>(R.id.textViewCampaignTitle) as TextView
             mImageViewScenarioGraphic =
                     pView.findViewById<View>(R.id.imageViewScenarioBackground) as ImageView
+
             pView.setOnClickListener(this)
         }
     }

@@ -35,6 +35,7 @@ class Scenario(private val mScenarioType: ScenarioType,
     private var mTraits: ArrayList<CardTrait>? = null
     private var mLocations: ArrayList<Location>? = null
 
+
     fun getScenarioTitle(): String {
         return mScenarioTitle
     }
