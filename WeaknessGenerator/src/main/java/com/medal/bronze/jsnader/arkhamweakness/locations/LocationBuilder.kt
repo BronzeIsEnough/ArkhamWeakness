@@ -27,10 +27,9 @@ import kotlin.collections.ArrayList
  *
  * @author Jeremiah Snader
  */
-class LocationBuilder private constructor() {
-
-    fun getUnseenLocations(): ArrayList<Location?>? {
-        val locs = ArrayList<Location?>()
+object LocationBuilder {
+    fun getUnseenLocations(): ArrayList<Location> {
+        val locs = ArrayList<Location>()
         val locationTraits = ArrayList(Arrays.asList(LocationTrait.DUNWICH))
         locs.add(
                 Location("Blasted Heath",
@@ -88,8 +87,8 @@ class LocationBuilder private constructor() {
         return locs
     }
 
-    fun getForgottenAgeLocations(): ArrayList<Location?>? {
-        val locs = ArrayList<Location?>()
+    fun getForgottenAgeLocations(): ArrayList<Location> {
+        val locs = ArrayList<Location>()
         val locationTraits = ArrayList(Arrays.asList(LocationTrait.FORGOTTEN_AGE))
         locs.add(Location(
                 "Steps of Yoth",
@@ -196,15 +195,5 @@ class LocationBuilder private constructor() {
                         ConnectionType.HEART,
                         ConnectionType.TRIANGLE))))
         return locs
-    }
-
-    companion object {
-        private var mInstance: LocationBuilder? = null
-        fun getInstance(): LocationBuilder? {
-            if (mInstance == null) {
-                mInstance = LocationBuilder()
-            }
-            return mInstance
-        }
     }
 }
