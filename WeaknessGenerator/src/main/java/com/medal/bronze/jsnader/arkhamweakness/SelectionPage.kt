@@ -43,6 +43,9 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
         mAdapter = ScenarioAdapter(mScenarioList, this)
     }
 
+    /** A native function meant to check the input string against a defined string in the library.*/
+    external fun checkAppPassphrase (pass : String) : Boolean
+
     /**
      * Load a list of scenarios for the user to be displayed.
      *
@@ -51,12 +54,24 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
     override fun onCreate(pSavedInstanceState: Bundle?) {
         super.onCreate(pSavedInstanceState)
         setContentView(R.layout.activity_selection_screen)
+        // Check against a phrase expected in the native library.  This is really just for testing
+        // simple jni with Kotlin and has no real use case.
+        if (!checkNativePassPhrase()) return;
         val recyclerView = findViewById<View?>(R.id.recyclerView) as RecyclerView
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = mLayoutManager
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.adapter = mAdapter
         prepareScenarioList()
+    }
+
+    /**
+     * A pointless feature really added in just to integrate some native code into the Kotlin
+     * application.  It isn't necessary, but useful for practice/testing CMake and C/C++ support
+     * with a Kotlin project.
+     */
+    private fun checkNativePassPhrase() : Boolean {
+        return checkAppPassphrase("SimpleNativePassPhrase");
     }
 
     /**
