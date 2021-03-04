@@ -29,17 +29,29 @@ import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioAdapter
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioBuilder
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioType
 import com.medal.bronze.jsnader.arkhamweakness.support.ScenarioSelectedListener
+import java.lang.System.*
 import java.util.*
 
 class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
+    /** The list of scenario options that the app provides to help the user. */
     private val mScenarioList: MutableList<Scenario> = ArrayList()
-    private lateinit var mAdapter: ScenarioAdapter
+    /** The adapter that holds information for the scenarios. */
+    private val mAdapter: ScenarioAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    init {
+        loadLibrary("native-lib")
+        mAdapter = ScenarioAdapter(mScenarioList, this)
+    }
+
+    /**
+     * Load a list of scenarios for the user to be displayed.
+     *
+     * @param pSavedInstanceState The state of the activity is stored in the bundle.
+     */
+    override fun onCreate(pSavedInstanceState: Bundle?) {
+        super.onCreate(pSavedInstanceState)
         setContentView(R.layout.activity_selection_screen)
         val recyclerView = findViewById<View?>(R.id.recyclerView) as RecyclerView
-        mAdapter = ScenarioAdapter(mScenarioList, this)
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = mLayoutManager
         recyclerView.itemAnimator = DefaultItemAnimator()
@@ -47,12 +59,21 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
         prepareScenarioList()
     }
 
+    /**
+     * Read in the scenarios and re-populate the adapter.
+     */
     private fun prepareScenarioList() {
         mScenarioList.clear()
         ScenarioBuilder().buildScenarioList().let { mScenarioList.addAll(it) }
         mAdapter.notifyDataSetChanged()
     }
 
+    /**
+     * Called to start a new activity from the {ScenarioSelectedListener} based on what was chosen
+     * from the {ScenarioAdapter}.
+     *
+     * @param pScenarioType The type of scenario to construct the appropriate activity for.
+     */
     override fun updatePage(pScenarioType: ScenarioType) {
         val intent = Intent(this@SelectionPage, ResultPage::class.java)
         intent.putExtra(getString(R.string.scenario_type), pScenarioType)
