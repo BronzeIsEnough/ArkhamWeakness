@@ -29,6 +29,11 @@ import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioAdapter
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioBuilder
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioType
 import com.medal.bronze.jsnader.arkhamweakness.support.ScenarioSelectedListener
+import org.opencv.android.OpenCVLoader
+import org.opencv.android.Utils
+import org.opencv.core.Mat
+import org.opencv.imgproc.Imgproc
+import java.io.IOException
 import java.lang.System.*
 import java.util.*
 
@@ -40,6 +45,8 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
 
     init {
         loadLibrary("native-lib")
+        loadLibrary("opencv_java4")
+        OpenCVLoader.initDebug()
         mAdapter = ScenarioAdapter(mScenarioList, this)
     }
 
@@ -57,6 +64,10 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
         // Check against a phrase expected in the native library.  This is really just for testing
         // simple jni with Kotlin and has no real use case.
         if (!checkNativePassPhrase()) return;
+        // Check against an imported native library that has no real use for this project as well,
+        // but just wanted to go through the procedure of adding in a popular open source library
+        // into this Kotlin project for reference later.
+        if (!checkOpenCvUsageAvailable()) return;
         val recyclerView = findViewById<View?>(R.id.recyclerView) as RecyclerView
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = mLayoutManager
@@ -72,6 +83,24 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
      */
     private fun checkNativePassPhrase() : Boolean {
         return checkAppPassphrase("SimpleNativePassPhrase");
+    }
+
+    /**
+     * A pointless feature really added in just to integrate the OpenCV library into the Kotlin
+     * project.  It isn't necessary, but useful for pratice/testing the import of an open source
+     * library and how it interacts with this project.
+     */
+    private fun checkOpenCvUsageAvailable() : Boolean {
+        var mat : Mat
+        try {
+            mat = Utils.loadResource(applicationContext, R.drawable.weakness_hypochondria)
+        } catch (exception : IOException) {
+            exception.printStackTrace()
+            return false
+        }
+
+        Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY)
+        return true;
     }
 
     /**
