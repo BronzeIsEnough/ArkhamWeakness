@@ -65,6 +65,7 @@ class ScenarioAdapter(
         var mTextViewScenarioTitle: TextView
         var mTextViewCampaignTitle: TextView
         var mImageViewScenarioGraphic: ImageView?
+
         override fun onClick(pView: View?) {
             mScenarioType?.let { mListener.updatePage(it) }
         }

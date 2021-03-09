@@ -17,11 +17,14 @@
  */
 package com.medal.bronze.jsnader.arkhamweakness.support
 
+import androidx.room.TypeConverters
+
 /**
  * Defines what type of a mythos card that we are dealing with in case that becomes something that
  * we need to reference at some point.
  */
-enum class MythosCardType {
-    TREACHERY,
-    ENEMY
+@TypeConverters(CardConverters::class)
+enum class MythosCardType(val jsonName : String) {
+    TREACHERY("treachery"),
+    ENEMY("enem y")
 }

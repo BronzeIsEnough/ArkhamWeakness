@@ -17,13 +17,11 @@
  */
 package com.medal.bronze.jsnader.arkhamweakness.data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import android.os.Parcelable
+import androidx.room.*
+import com.medal.bronze.jsnader.arkhamweakness.support.*
 
-import com.medal.bronze.jsnader.arkhamweakness.support.CampaignAffinity
-import com.medal.bronze.jsnader.arkhamweakness.support.CardTrait
-import com.medal.bronze.jsnader.arkhamweakness.support.EnemyKeywords
-import com.medal.bronze.jsnader.arkhamweakness.support.MythosCardType
+import kotlinx.parcelize.Parcelize
 
 /**
  * This will be a table that represents the cards that we will be referencing when we want to get
@@ -31,17 +29,23 @@ import com.medal.bronze.jsnader.arkhamweakness.support.MythosCardType
  * within the class below.  The [CardDao] will expose the methods for retrieving information on
  * the data in the table.
  */
+@Parcelize
 @Entity(tableName = "card_table")
 data class Card (
     @PrimaryKey(autoGenerate = true)
+    val id : Int,
     val name : String,
     val isBasicWeakness : Boolean,
     val numAvailable : Int,
-    val image : Int,
+    val image : String,
+    @TypeConverters
     val affinity : CampaignAffinity,
+    @TypeConverters
     val mythosCardType : MythosCardType,
+    @TypeConverters
     val traits : ArrayList<CardTrait>,
-    val keywords : ArrayList<EnemyKeywords>,
+    @TypeConverters
+    val keywords : ArrayList<EnemyKeyword>,
     val flavorText : String,
     val illustrator : String,
     val fightVal : Int,
@@ -49,4 +53,4 @@ data class Card (
     val evadeVal : Int,
     val damage : Int,
     val horror : Int
-)
+) : Parcelable
