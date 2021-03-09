@@ -30,7 +30,7 @@ import kotlinx.coroutines.launch
  * accessing the [CardRepository] referencing [Card]s that we will be acting upon in our database.
  */
 class CardViewModel(application : Application) : AndroidViewModel(application) {
-    private val readAllData : LiveData<List<Card>>
+    val readAllData : LiveData<List<Card>>
     private val repository : CardRepository
 
     init {

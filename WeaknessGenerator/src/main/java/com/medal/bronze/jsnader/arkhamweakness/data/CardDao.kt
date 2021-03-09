@@ -32,6 +32,10 @@ import androidx.room.Query
 interface CardDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addCard(card : Card)
+
     @Query("SELECT * FROM card_table ORDER BY name ASC")
     fun readAllData() : LiveData<List<Card>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(cards: List<Card>)
 }

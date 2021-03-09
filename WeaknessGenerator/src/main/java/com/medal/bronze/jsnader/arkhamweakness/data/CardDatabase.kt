@@ -21,6 +21,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import com.medal.bronze.jsnader.arkhamweakness.support.CardConverters
 
 /**
  * The database has the responsibility of keeping track of what data and methods for accessing that
@@ -30,7 +35,8 @@ import androidx.room.RoomDatabase
  * hold versioning and we can export the schema for tracking over time if desired.
  */
 @Database(entities = [Card::class], version =  1, exportSchema = false)
-abstract class CardDatabase :RoomDatabase() {
+@TypeConverters(CardConverters::class)
+abstract class CardDatabase : RoomDatabase() {
     abstract fun cardDao() : CardDao
 
     companion object {
@@ -46,8 +52,16 @@ abstract class CardDatabase :RoomDatabase() {
                 val instance = Room.databaseBuilder(
                         context.applicationContext,
                         CardDatabase::class.java,
-                        "card_database"
-                ).build()
+                        "card_database").addCallback(
+                            object : RoomDatabase.Callback() {
+                                override fun onCreate(db: SupportSQLiteDatabase) {
+                                    super.onCreate(db)
+                                    val request =
+                                            OneTimeWorkRequestBuilder<CardDatabaseWorker>().build()
+                                    WorkManager.getInstance(context).enqueue(request)
+                                }
+                            }
+                        ).build()
                 INSTANCE = instance
                 return instance
             }

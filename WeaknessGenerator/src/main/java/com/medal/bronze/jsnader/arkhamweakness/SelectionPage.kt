@@ -21,9 +21,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.medal.bronze.jsnader.arkhamweakness.data.CardDatabase
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.Scenario
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioAdapter
 import com.medal.bronze.jsnader.arkhamweakness.scenarios.ScenarioBuilder
@@ -61,6 +64,9 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
     override fun onCreate(pSavedInstanceState: Bundle?) {
         super.onCreate(pSavedInstanceState)
         setContentView(R.layout.activity_selection_screen)
+
+//        setupActionBarWithNavController(findNavController(R.id.fragment))
+
         // Check against a phrase expected in the native library.  This is really just for testing
         // simple jni with Kotlin and has no real use case.
         if (!checkNativePassPhrase()) return;
@@ -74,7 +80,15 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.adapter = mAdapter
         prepareScenarioList()
+        val database = CardDatabase.getDatabase(applicationContext)
+        val data = database.cardDao().readAllData()
+        val item = data.toString()
     }
+
+//    override fun onSupportNavigateUp(): Boolean {
+//        val navController = findNavController(R.id.fragment)
+//        return navController.navigateUp() || super.onSupportNavigateUp()
+//    }
 
     /**
      * A pointless feature really added in just to integrate some native code into the Kotlin

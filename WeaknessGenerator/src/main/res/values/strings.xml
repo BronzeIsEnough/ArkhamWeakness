@@ -5,4 +5,6 @@
     <string name="scenario_type">ScenarioType</string>
     <string name="content_description_weakness">
         Defines a weakness card for the Arkham Horror LCG</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

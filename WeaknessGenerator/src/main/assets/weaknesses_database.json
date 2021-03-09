@@ -1,0 +1,22 @@
+[
+    {
+      "id" : 10,
+      "name" : "Amnesia",
+      "isBasicWeakness" : true,
+      "numAvailable" : 2,
+      "image" : "https://arkhamdb.com/bundles/cards/01096.png",
+      "affinity" : "night_of_the_zeolot",
+      "mythosCardType" : "treachery",
+      "traits" : [
+        "madness"
+      ],
+      "keywords" : "",
+      "flavorText" : "Wait...where am I?  What was I doing?",
+      "illustrator" : "Chris Peuler",
+      "fightVal" : -1,
+      "healthVal" : -1,
+      "evadeVal" : -1,
+      "damage" : -1,
+      "horror" : -1
+    }
+]

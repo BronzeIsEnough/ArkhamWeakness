@@ -17,6 +17,8 @@
  */
 package com.medal.bronze.jsnader.arkhamweakness.support
 
+import androidx.room.TypeConverters
+
 /**
  * Represents the traits associated with a card in the Arkham Horror game.  These are typically
  * referenced by individuals and used to filter whether or not it should be considered for
@@ -24,23 +26,24 @@ package com.medal.bronze.jsnader.arkhamweakness.support
  *
  * Created by Jeremiah on 2/23/2021.
  */
-enum class CardTrait {
-    ALL,
-    CRIMINAL,
-    CULTIST,
-    CURSE,
-    DETECTIVE,
-    ENDTIMES,
-    FLAW,
-    FLORA,
-    HUMANOID,
-    INJURY,
-    MADNESS,
-    MONSTER,
-    MYSTERY,
-    OMEN,
-    PACT,
-    SILVER_TWILIGHT,
-    TALENT,
-    TAROT
+@TypeConverters(CardConverters::class)
+enum class CardTrait(val jsonName : String){
+    ALL("all"),
+    CRIMINAL("criminal"),
+    CULTIST("cultist"),
+    CURSE("curse"),
+    DETECTIVE("detective"),
+    ENDTIMES("end_times"),
+    FLAW("flaw"),
+    FLORA("flora"),
+    HUMANOID("humanoid"),
+    INJURY("injury"),
+    MADNESS("madness"),
+    MONSTER("monster"),
+    MYSTERY("mystery"),
+    OMEN("opoen"),
+    PACT("pact"),
+    SILVER_TWILIGHT("silver_twilight"),
+    TALENT("talent"),
+    TAROT("tarot")
 }
