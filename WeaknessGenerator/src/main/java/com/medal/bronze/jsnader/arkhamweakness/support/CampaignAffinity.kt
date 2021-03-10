@@ -27,7 +27,7 @@ import androidx.room.TypeConverters
  * Created by Jeremiah on 2/23/2021.
  */
 @TypeConverters(CardConverters::class)
-enum class CampaignAffinity() {
+enum class CampaignAffinity {
     NIGHT_OF_THE_ZEALOT,
     DUNWICH_LEGACY,
     RETURN_TO_DUNWICH_LEGACY,

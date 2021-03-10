@@ -27,11 +27,11 @@ class CardConverters {
      */
     @TypeConverter
     fun affinityToJsonName(affinity: CampaignAffinity) : String {
-        return affinity.jsonName
+        return affinity.name
     }
     @TypeConverter
     fun jsonNameToAffinity(jsonName: String) : CampaignAffinity? {
-        return CampaignAffinity.values().find { it.jsonName.equals(jsonName) }
+        return CampaignAffinity.values().find { it.name.equals(jsonName) }
     }
     /**
      * It's purpose is to convert a json string name to an enumeration and vice versa that we will
@@ -83,10 +83,10 @@ class CardConverters {
      */
     @TypeConverter
     fun mythosTypeToJsonName(mythosType: MythosCardType) : String {
-        return mythosType.jsonName
+        return mythosType.name
     }
     @TypeConverter
     fun jsonNameToMythosType(jsonName: String) : MythosCardType? {
-        return MythosCardType.values().find { it.jsonName.equals(jsonName) }
+        return MythosCardType.values().find { it.name.equals(jsonName) }
     }
 }

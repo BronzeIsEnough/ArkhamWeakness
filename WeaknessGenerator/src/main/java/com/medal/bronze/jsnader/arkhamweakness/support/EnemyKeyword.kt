@@ -24,9 +24,9 @@ import androidx.room.TypeConverters
  * referenced at some point for determining or presenting behavior to the user.
  */
 @TypeConverters(CardConverters::class)
-enum class EnemyKeyword(val jsonName : String) {
-    HUNTER("hunter"),
-    ALOOF("aloof"),
-    ALERT("alert"),
-    RETALIATE("retaliate"),
+enum class EnemyKeyword {
+    HUNTER,
+    ALOOF,
+    ALERT,
+    RETALIATE,
 }

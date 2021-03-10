@@ -24,7 +24,7 @@ import androidx.room.TypeConverters
  * we need to reference at some point.
  */
 @TypeConverters(CardConverters::class)
-enum class MythosCardType(val jsonName : String) {
-    TREACHERY("treachery"),
-    ENEMY("enem y")
+enum class MythosCardType{
+    TREACHERY,
+    ENEMY
 }
