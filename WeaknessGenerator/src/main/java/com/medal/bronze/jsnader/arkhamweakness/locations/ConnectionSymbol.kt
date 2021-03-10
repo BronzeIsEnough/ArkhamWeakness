@@ -24,7 +24,7 @@ package com.medal.bronze.jsnader.arkhamweakness.locations
  *
  * @author Jeremiah Snader
  */
-enum class ConnectionType {
+enum class ConnectionSymbol {
     HOURGLASS,
     SQUARE,
     TRIANGLE,

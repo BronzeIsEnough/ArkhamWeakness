@@ -23,7 +23,7 @@ import kotlin.collections.ArrayList
 
 /**
  * This is a class that is meant to represent physical locations in the game that are represented
- * as cards.  They have names, [LocationTrait]s and [ConnectionType]s associated with them.  The
+ * as cards.  They have names, [LocationTrait]s and [ConnectionSymbol]s associated with them.  The
  * name is not always unique since there could be multiple copies of each.  This should be kept in
  * mind when using data associated with locations for filtering purposes.
  *
@@ -32,28 +32,36 @@ import kotlin.collections.ArrayList
 class Location(pName: String,
                pDrawableResource: Int,
                pLocationTraits: ArrayList<LocationTrait>,
-               pLocationValue: ConnectionType,
-               pLocationConnections: ArrayList<ConnectionType>) : Card() {
+               pLocationValue: ConnectionSymbol,
+               pLocationConnections: ArrayList<ConnectionSymbol>) : Card() {
 
     var mName: String
     var mLocationTraits: ArrayList<LocationTrait>
-    val mLocType: ConnectionType
-    var mConnections: ArrayList<ConnectionType>
+    val mLocSymbol: ConnectionSymbol
+    var mConnections: ArrayList<ConnectionSymbol>
 
     init {
         mCardType = CardType.LOCATION
         mName = pName
         mDrawableResource = pDrawableResource
         mLocationTraits = pLocationTraits
-        mLocType = pLocationValue
+        mLocSymbol = pLocationValue
         mConnections = pLocationConnections
     }
 
-    public fun getLocationSymbol() : ConnectionType {
-        return mLocType;
+    /**
+     * Returns a symbol that represents what location this card represents in the current
+     * scenario.  Symbols determine what other connections are connected to it a location.
+     */
+    public fun getLocationSymbol() : ConnectionSymbol {
+        return mLocSymbol;
     }
 
-    public fun getConnections() : ArrayList<ConnectionType> {
+    /**
+     * This defines the connectivity of the location to other [Location]s. If a location has
+     * connectivity to another location, then their [ConnectionSymbol] will be in this list.
+     */
+    public fun getConnections() : ArrayList<ConnectionSymbol> {
         return mConnections
     }
 }
