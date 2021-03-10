@@ -21,8 +21,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -64,9 +62,6 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
     override fun onCreate(pSavedInstanceState: Bundle?) {
         super.onCreate(pSavedInstanceState)
         setContentView(R.layout.activity_selection_screen)
-
-//        setupActionBarWithNavController(findNavController(R.id.fragment))
-
         // Check against a phrase expected in the native library.  This is really just for testing
         // simple jni with Kotlin and has no real use case.
         if (!checkNativePassPhrase()) return;
@@ -74,21 +69,16 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
         // but just wanted to go through the procedure of adding in a popular open source library
         // into this Kotlin project for reference later.
         if (!checkOpenCvUsageAvailable()) return;
+        // Check whether the Room database library is being used and has been constructed properly
+        // for this Kotlin project to be referenced at a later date.
+        if (!checkDatabaseUsageAvailable()) return;
         val recyclerView = findViewById<View?>(R.id.recyclerView) as RecyclerView
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = mLayoutManager
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.adapter = mAdapter
         prepareScenarioList()
-        val database = CardDatabase.getDatabase(applicationContext)
-        val data = database.cardDao().readAllData()
-        val item = data.toString()
     }
-
-//    override fun onSupportNavigateUp(): Boolean {
-//        val navController = findNavController(R.id.fragment)
-//        return navController.navigateUp() || super.onSupportNavigateUp()
-//    }
 
     /**
      * A pointless feature really added in just to integrate some native code into the Kotlin
@@ -115,6 +105,17 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
 
         Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY)
         return true;
+    }
+
+    /**
+     * A pointless feature really added in just to integrate datbases with the Room SDK provided by
+     * Google.  It isn't necessary at the moment but we could expand upon our project in order to
+     * make it a necessity and use it instead of code contruction of our so-called-database we are
+     * using.
+     */
+    private fun checkDatabaseUsageAvailable() : Boolean {
+        val database = CardDatabase.getDatabase(applicationContext)
+        return database.cardDao().readAllData() != null
     }
 
     /**
