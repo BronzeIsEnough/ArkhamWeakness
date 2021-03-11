@@ -47,10 +47,10 @@ class ScenarioAdapter(
 
     override fun onBindViewHolder(pHolder: MyViewHolder, pPosition: Int) {
         val scenario = mScenarioList.get(pPosition)
-        pHolder.mScenarioType = scenario.getScenarioType()
-        pHolder.mTextViewScenarioTitle.text = scenario.getScenarioTitle()
-        pHolder.mTextViewCampaignTitle.text = scenario.getCampaignTitle()
-        scenario.getImageResource().let {
+        pHolder.mScenarioType = scenario.mScenarioType
+        pHolder.mTextViewScenarioTitle.text = scenario.mScenarioTitle
+        pHolder.mTextViewCampaignTitle.text = scenario.mCampaignTitle
+        scenario.mImageResource.let {
             pHolder.mImageViewScenarioGraphic?.setImageResource(it)
         }
     }

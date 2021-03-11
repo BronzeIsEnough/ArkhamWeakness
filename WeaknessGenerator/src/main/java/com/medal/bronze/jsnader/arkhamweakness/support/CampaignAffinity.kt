@@ -27,15 +27,15 @@ import androidx.room.TypeConverters
  * Created by Jeremiah on 2/23/2021.
  */
 @TypeConverters(CardConverters::class)
-enum class CampaignAffinity(val jsonName : String) {
-    NIGHT_OF_THE_ZEALOT("night_of_the_zealot"),
-    DUNWICH_LEGACY("dunwich_legacy"),
-    RETURN_TO_DUNWICH_LEGACY("return_to_dunwich_legacy"),
-    PATH_TO_CARCOSA("path_to_carcosa"),
-    RETURN_TO_PATH_TO_CARCOSA("return_to_path_to_carcosa"),
-    THE_FORGOTTEN_AGE("the_forgotten_age"),
-    RETURN_TO_FORGOTTEN_AGE("return_to_forgotten_age"),
-    CIRCLE_UNDONE("circle_undone"),
-    DREAM_EATERS("dream_eaters"),
-    INNSMOUTH_CONSPIRACY("innsmouth_conspiracy")
+enum class CampaignAffinity {
+    NIGHT_OF_THE_ZEALOT,
+    DUNWICH_LEGACY,
+    RETURN_TO_DUNWICH_LEGACY,
+    PATH_TO_CARCOSA,
+    RETURN_TO_PATH_TO_CARCOSA,
+    THE_FORGOTTEN_AGE,
+    RETURN_TO_FORGOTTEN_AGE,
+    CIRCLE_UNDONE,
+    DREAM_EATERS,
+    INNSMOUTH_CONSPIRACY
 }

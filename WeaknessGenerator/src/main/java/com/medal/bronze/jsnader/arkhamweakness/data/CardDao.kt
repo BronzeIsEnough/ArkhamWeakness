@@ -37,5 +37,5 @@ interface CardDao {
     fun readAllData() : LiveData<List<Card>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(cards: List<Card>)
+    fun insertAll(cards: List<Card>)
 }

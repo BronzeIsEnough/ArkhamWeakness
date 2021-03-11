@@ -35,6 +35,19 @@ class CardBuilder(mScenarioType: ScenarioType?) {
     private val mFullWeaknessList: ArrayList<Weakness> = ArrayList()
     private val mCardList: ArrayList<Card> = ArrayList()
 
+    init {
+        setupFullWeaknessList()
+        when (mScenarioType) {
+            ScenarioType.GENERAL -> buildGeneralWeaknessList()
+            ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS -> buildUndimensionedWeaknessList()
+            ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION -> buildUndimensionedLocationList()
+            ScenarioType.BLACK_STARS_RISE -> buildBlackStarsRiseWeaknessList()
+            ScenarioType.THE_PALLID_MASK -> buildThePallidMaskWeaknessList()
+            ScenarioType.DEPTHS_OF_YOTH_WEAKNESS -> buildDepthsOfYothWeaknessList()
+            ScenarioType.DEPTHS_OF_YOTH_LOCATION -> buildDepthsOfYothLocationList()
+        }
+    }
+
     fun getCardList(): ArrayList<Card> {
         return mCardList
     }
@@ -350,18 +363,5 @@ class CardBuilder(mScenarioType: ScenarioType?) {
         }
         pWeakness.setCardTraits(pCardTraits)
         pCardTraits.clear()
-    }
-
-    init {
-        setupFullWeaknessList()
-        when (mScenarioType) {
-            ScenarioType.GENERAL -> buildGeneralWeaknessList()
-            ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS -> buildUndimensionedWeaknessList()
-            ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION -> buildUndimensionedLocationList()
-            ScenarioType.BLACK_STARS_RISE -> buildBlackStarsRiseWeaknessList()
-            ScenarioType.THE_PALLID_MASK -> buildThePallidMaskWeaknessList()
-            ScenarioType.DEPTHS_OF_YOTH_WEAKNESS -> buildDepthsOfYothWeaknessList()
-            ScenarioType.DEPTHS_OF_YOTH_LOCATION -> buildDepthsOfYothLocationList()
-        }
     }
 }

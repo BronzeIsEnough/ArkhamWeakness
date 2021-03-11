@@ -27,23 +27,23 @@ import androidx.room.TypeConverters
  * Created by Jeremiah on 2/23/2021.
  */
 @TypeConverters(CardConverters::class)
-enum class CardTrait(val jsonName : String){
-    ALL("all"),
-    CRIMINAL("criminal"),
-    CULTIST("cultist"),
-    CURSE("curse"),
-    DETECTIVE("detective"),
-    ENDTIMES("end_times"),
-    FLAW("flaw"),
-    FLORA("flora"),
-    HUMANOID("humanoid"),
-    INJURY("injury"),
-    MADNESS("madness"),
-    MONSTER("monster"),
-    MYSTERY("mystery"),
-    OMEN("opoen"),
-    PACT("pact"),
-    SILVER_TWILIGHT("silver_twilight"),
-    TALENT("talent"),
-    TAROT("tarot")
+enum class CardTrait{
+    ALL,
+    CRIMINAL,
+    CULTIST,
+    CURSE,
+    DETECTIVE,
+    ENDTIMES,
+    FLAW,
+    FLORA,
+    HUMANOID,
+    INJURY,
+    MADNESS,
+    MONSTER,
+    MYSTERY,
+    OMEN,
+    PACT,
+    SILVER_TWILIGHT,
+    TALENT,
+    TAROT
 }

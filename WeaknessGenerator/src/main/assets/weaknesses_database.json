@@ -1,14 +1,14 @@
 [
     {
       "id" : 10,
-      "name" : "Amnesia",
+      "name" : "AMNESIA",
       "isBasicWeakness" : true,
       "numAvailable" : 2,
       "image" : "https://arkhamdb.com/bundles/cards/01096.png",
-      "affinity" : "night_of_the_zeolot",
-      "mythosCardType" : "treachery",
+      "affinity" : "NIGHT_OF_THE_ZEALOT",
+      "mythosCardType" : "TREACHERY",
       "traits" : [
-        "madness"
+        "MADNESS"
       ],
       "keywords" : "",
       "flavorText" : "Wait...where am I?  What was I doing?",

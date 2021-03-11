@@ -35,55 +35,55 @@ object LocationBuilder {
                 Location("Blasted Heath",
                         R.drawable.unseen_blasted_heath,
                         locationTraits,
-                        ConnectionType.SQUARE,
+                        ConnectionSymbol.SQUARE,
                         ArrayList(Arrays.asList(
-                                ConnectionType.CIRCLE,
-                                ConnectionType.HOURGLASS))))
+                                ConnectionSymbol.CIRCLE,
+                                ConnectionSymbol.HOURGLASS))))
         locs.add(
                 Location(
                         "Cold Spring Glen",
                         R.drawable.unseen_cold_spring_glen,
                         locationTraits,
-                        ConnectionType.TRIANGLE,
+                        ConnectionSymbol.TRIANGLE,
                         ArrayList(Arrays.asList(
-                                ConnectionType.CIRCLE,
-                                ConnectionType.DIAMOND,
-                                ConnectionType.PLUS_SIGN))))
+                                ConnectionSymbol.CIRCLE,
+                                ConnectionSymbol.DIAMOND,
+                                ConnectionSymbol.PLUS_SIGN))))
         locs.add(
                 Location("Devil's Hopyard",
                         R.drawable.unseen_devils_hop_yard,
                         locationTraits,
-                        ConnectionType.HOURGLASS,
+                        ConnectionSymbol.HOURGLASS,
                         ArrayList(Arrays.asList(
-                                ConnectionType.SQUARE,
-                                ConnectionType.PLUS_SIGN))))
+                                ConnectionSymbol.SQUARE,
+                                ConnectionSymbol.PLUS_SIGN))))
         locs.add(
                 Location("Dunwich Village",
                         R.drawable.unseen_dunwich_village,
                         locationTraits,
-                        ConnectionType.CIRCLE,
+                        ConnectionSymbol.CIRCLE,
                         ArrayList(Arrays.asList(
-                                ConnectionType.TRIANGLE,
-                                ConnectionType.SQUARE,
-                                ConnectionType.DIAMOND))))
+                                ConnectionSymbol.TRIANGLE,
+                                ConnectionSymbol.SQUARE,
+                                ConnectionSymbol.DIAMOND))))
         locs.add(
                 Location("Ten Acre Meadow",
                         R.drawable.unseen_ten_acre_meadow,
                         locationTraits,
-                        ConnectionType.TRIANGLE,
+                        ConnectionSymbol.TRIANGLE,
                         ArrayList(Arrays.asList(
-                                ConnectionType.CIRCLE,
-                                ConnectionType.TRIANGLE,
-                                ConnectionType.PLUS_SIGN))))
+                                ConnectionSymbol.CIRCLE,
+                                ConnectionSymbol.TRIANGLE,
+                                ConnectionSymbol.PLUS_SIGN))))
         locs.add(
                 Location("Whateley Ruins",
                         R.drawable.unseen_whateley_ruins,
                         locationTraits,
-                        ConnectionType.PLUS_SIGN,
+                        ConnectionSymbol.PLUS_SIGN,
                         ArrayList(Arrays.asList(
-                                ConnectionType.TRIANGLE,
-                                ConnectionType.DIAMOND,
-                                ConnectionType.HOURGLASS))))
+                                ConnectionSymbol.TRIANGLE,
+                                ConnectionSymbol.DIAMOND,
+                                ConnectionSymbol.HOURGLASS))))
         return locs
     }
 
@@ -94,106 +94,106 @@ object LocationBuilder {
                 "Steps of Yoth",
                 R.drawable.location_steps_of_yoth,
                 locationTraits,
-                ConnectionType.EQUAL_SIGN,
+                ConnectionSymbol.EQUAL_SIGN,
                 ArrayList(Arrays.asList(
-                        ConnectionType.HOURGLASS,
-                        ConnectionType.SQUARE,
-                        ConnectionType.TRIANGLE,
-                        ConnectionType.DIAMOND,
-                        ConnectionType.HEART))))
+                        ConnectionSymbol.HOURGLASS,
+                        ConnectionSymbol.SQUARE,
+                        ConnectionSymbol.TRIANGLE,
+                        ConnectionSymbol.DIAMOND,
+                        ConnectionSymbol.HEART))))
         locs.add(Location(
                 "City of the Serpents",
                 R.drawable.location_city_of_the_serpents,
                 locationTraits,
-                ConnectionType.DIAMOND,
+                ConnectionSymbol.DIAMOND,
                 ArrayList(Arrays.asList(
-                        ConnectionType.EQUAL_SIGN,
-                        ConnectionType.FLAME,
-                        ConnectionType.TRIANGLE,
-                        ConnectionType.TETRIS_T,
-                        ConnectionType.SQUARE))))
+                        ConnectionSymbol.EQUAL_SIGN,
+                        ConnectionSymbol.FLAME,
+                        ConnectionSymbol.TRIANGLE,
+                        ConnectionSymbol.TETRIS_T,
+                        ConnectionSymbol.SQUARE))))
         locs.add(Location("Hall of Heresy",
                 R.drawable.location_hall_of_heresy,
                 locationTraits,
-                ConnectionType.TRIANGLE,
+                ConnectionSymbol.TRIANGLE,
                 ArrayList(Arrays.asList(
-                        ConnectionType.EQUAL_SIGN,
-                        ConnectionType.DIAMOND,
-                        ConnectionType.CIRCLE,
-                        ConnectionType.SQUARE,
-                        ConnectionType.TETRIS_T))))
+                        ConnectionSymbol.EQUAL_SIGN,
+                        ConnectionSymbol.DIAMOND,
+                        ConnectionSymbol.CIRCLE,
+                        ConnectionSymbol.SQUARE,
+                        ConnectionSymbol.TETRIS_T))))
         locs.add(Location(
                 "Crumbling Precipice",
                 R.drawable.location_crumbling_precipice,
                 locationTraits,
-                ConnectionType.HOURGLASS,
+                ConnectionSymbol.HOURGLASS,
                 ArrayList(Arrays.asList(
-                        ConnectionType.EQUAL_SIGN,
-                        ConnectionType.TILDA,
-                        ConnectionType.HEART,
-                        ConnectionType.TETRIS_T,
-                        ConnectionType.FLAME))))
+                        ConnectionSymbol.EQUAL_SIGN,
+                        ConnectionSymbol.TILDA,
+                        ConnectionSymbol.HEART,
+                        ConnectionSymbol.TETRIS_T,
+                        ConnectionSymbol.FLAME))))
         locs.add(Location("Caverns of Yoth",
                 R.drawable.location_caverns_of_yoth,
                 locationTraits,
-                ConnectionType.FLAME,
+                ConnectionSymbol.FLAME,
                 ArrayList(Arrays.asList(
-                        ConnectionType.CIRCLE,
-                        ConnectionType.HOURGLASS,
-                        ConnectionType.HEART,
-                        ConnectionType.DIAMOND,
-                        ConnectionType.TILDA))))
+                        ConnectionSymbol.CIRCLE,
+                        ConnectionSymbol.HOURGLASS,
+                        ConnectionSymbol.HEART,
+                        ConnectionSymbol.DIAMOND,
+                        ConnectionSymbol.TILDA))))
         locs.add(Location("Forked Path",
                 R.drawable.location_forked_path,
                 locationTraits,
-                ConnectionType.TETRIS_T,
+                ConnectionSymbol.TETRIS_T,
                 ArrayList(Arrays.asList(
-                        ConnectionType.CIRCLE,
-                        ConnectionType.DIAMOND,
-                        ConnectionType.HOURGLASS,
-                        ConnectionType.SQUARE,
-                        ConnectionType.TRIANGLE))))
+                        ConnectionSymbol.CIRCLE,
+                        ConnectionSymbol.DIAMOND,
+                        ConnectionSymbol.HOURGLASS,
+                        ConnectionSymbol.SQUARE,
+                        ConnectionSymbol.TRIANGLE))))
         locs.add(Location(
                 "Bridge over N'kai",
                 R.drawable.location_bridge_over_nkai,
                 locationTraits,
-                ConnectionType.HEART,
+                ConnectionSymbol.HEART,
                 ArrayList(Arrays.asList(
-                        ConnectionType.EQUAL_SIGN,
-                        ConnectionType.CIRCLE,
-                        ConnectionType.FLAME,
-                        ConnectionType.HOURGLASS,
-                        ConnectionType.TILDA))))
+                        ConnectionSymbol.EQUAL_SIGN,
+                        ConnectionSymbol.CIRCLE,
+                        ConnectionSymbol.FLAME,
+                        ConnectionSymbol.HOURGLASS,
+                        ConnectionSymbol.TILDA))))
         locs.add(Location("Broken Passage",
                 R.drawable.location_broken_passage,
                 locationTraits,
-                ConnectionType.TILDA,
+                ConnectionSymbol.TILDA,
                 ArrayList(Arrays.asList(
-                        ConnectionType.CIRCLE,
-                        ConnectionType.FLAME,
-                        ConnectionType.HOURGLASS,
-                        ConnectionType.SQUARE,
-                        ConnectionType.HEART))))
+                        ConnectionSymbol.CIRCLE,
+                        ConnectionSymbol.FLAME,
+                        ConnectionSymbol.HOURGLASS,
+                        ConnectionSymbol.SQUARE,
+                        ConnectionSymbol.HEART))))
         locs.add(Location("Abandoned Site",
                 R.drawable.location_abandoned_site,
                 locationTraits,
-                ConnectionType.SQUARE,
+                ConnectionSymbol.SQUARE,
                 ArrayList(Arrays.asList(
-                        ConnectionType.EQUAL_SIGN,
-                        ConnectionType.DIAMOND,
-                        ConnectionType.TRIANGLE,
-                        ConnectionType.TETRIS_T,
-                        ConnectionType.TILDA))))
+                        ConnectionSymbol.EQUAL_SIGN,
+                        ConnectionSymbol.DIAMOND,
+                        ConnectionSymbol.TRIANGLE,
+                        ConnectionSymbol.TETRIS_T,
+                        ConnectionSymbol.TILDA))))
         locs.add(Location("Bright Canyon",
                 R.drawable.location_bright_canyon,
                 locationTraits,
-                ConnectionType.CIRCLE,
+                ConnectionSymbol.CIRCLE,
                 ArrayList(Arrays.asList(
-                        ConnectionType.FLAME,
-                        ConnectionType.TILDA,
-                        ConnectionType.TETRIS_T,
-                        ConnectionType.HEART,
-                        ConnectionType.TRIANGLE))))
+                        ConnectionSymbol.FLAME,
+                        ConnectionSymbol.TILDA,
+                        ConnectionSymbol.TETRIS_T,
+                        ConnectionSymbol.HEART,
+                        ConnectionSymbol.TRIANGLE))))
         return locs
     }
 }

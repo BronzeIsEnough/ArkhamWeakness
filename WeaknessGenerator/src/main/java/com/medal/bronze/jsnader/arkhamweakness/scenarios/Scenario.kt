@@ -27,30 +27,14 @@ import java.util.*
  *
  * Created by Jeremiah on 3/24/2018.
  */
-class Scenario(private val mScenarioType: ScenarioType,
-               private val mScenarioTitle: String,
-               private val mCampaignTitle: String,
-               private val mImageResource: Int) {
+class Scenario(val mScenarioType: ScenarioType,
+               val mScenarioTitle: String,
+               val mCampaignTitle: String,
+               val mImageResource: Int) {
 
     private var mTraits: ArrayList<CardTrait>? = null
     private var mLocations: ArrayList<Location>? = null
 
-
-    fun getScenarioTitle(): String {
-        return mScenarioTitle
-    }
-
-    fun getCampaignTitle(): String {
-        return mCampaignTitle
-    }
-
-    fun getImageResource(): Int {
-        return mImageResource
-    }
-
-    fun getScenarioType(): ScenarioType {
-        return mScenarioType
-    }
 
     fun setTraits(pTraits: ArrayList<CardTrait>?) {
         mTraits = pTraits
