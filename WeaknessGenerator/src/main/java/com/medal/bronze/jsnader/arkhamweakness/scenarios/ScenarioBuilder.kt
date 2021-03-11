@@ -67,7 +67,7 @@ class ScenarioBuilder {
                         R.drawable.general_weakness)
         clear()
         mCardTraits.add(CardTrait.ALL)
-        allInclusive.setTraits(mCardTraits.let { ArrayList(it) })
+        allInclusive.mTraits = mCardTraits.let { ArrayList(it) }
         pScenarios.add(allInclusive)
     }
 
@@ -81,7 +81,7 @@ class ScenarioBuilder {
         mCardTraits.add(CardTrait.MADNESS)
         mCardTraits.add(CardTrait.INJURY)
         mCardTraits.add(CardTrait.PACT)
-        undimensionedWkns.setTraits(mCardTraits.let { ArrayList(it) })
+        undimensionedWkns.mTraits = mCardTraits.let { ArrayList(it) }
         pScenarios.add(undimensionedWkns)
     }
 
@@ -93,7 +93,7 @@ class ScenarioBuilder {
                         R.drawable.undimensioned_and_unseen)
         clear()
         mLocations = LocationBuilder.getUnseenLocations()
-        undimensionedLocs.setLocations(mLocations)
+        undimensionedLocs.mLocations = mLocations
         pScenarios.add(undimensionedLocs)
     }
 
@@ -108,7 +108,7 @@ class ScenarioBuilder {
         mCardTraits.add(CardTrait.PACT)
         mCardTraits.add(CardTrait.CULTIST)
         mCardTraits.add(CardTrait.DETECTIVE)
-        blackStarsRise.setTraits(mCardTraits.let { ArrayList(it) })
+        blackStarsRise.mTraits = mCardTraits.let { ArrayList(it) }
         pScenarios.add(blackStarsRise)
     }
 
@@ -121,7 +121,7 @@ class ScenarioBuilder {
         clear()
         mCardTraits.add(CardTrait.MADNESS)
         mCardTraits.add(CardTrait.PACT)
-        pallidMask.setTraits(mCardTraits.let {ArrayList(it)})
+        pallidMask.mTraits = mCardTraits.let {ArrayList(it)}
         pScenarios.add(pallidMask)
     }
 
@@ -133,7 +133,7 @@ class ScenarioBuilder {
                         R.drawable.forgotten_age)
         clear()
         mCardTraits.add(CardTrait.INJURY)
-        depthsOfYoth.setTraits(mCardTraits.let { ArrayList(it) })
+        depthsOfYoth.mTraits = mCardTraits.let { ArrayList(it) }
         pScenarios.add(depthsOfYoth)
     }
 
@@ -145,7 +145,7 @@ class ScenarioBuilder {
                         R.drawable.forgotten_age)
         clear()
         mLocations = LocationBuilder.getForgottenAgeLocations()
-        depthsLoc.setLocations(mLocations)
+        depthsLoc.mLocations = mLocations
         pScenarios.add(depthsLoc)
     }
 

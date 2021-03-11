@@ -20,6 +20,7 @@ package com.medal.bronze.jsnader.arkhamweakness.scenarios
 import com.medal.bronze.jsnader.arkhamweakness.locations.Location
 import com.medal.bronze.jsnader.arkhamweakness.support.CardTrait
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Represents a specific scenario within the Arkham Horror LCG universe that a weakness could be
@@ -30,25 +31,7 @@ import java.util.*
 class Scenario(val mScenarioType: ScenarioType,
                val mScenarioTitle: String,
                val mCampaignTitle: String,
-               val mImageResource: Int) {
-
-    private var mTraits: ArrayList<CardTrait>? = null
-    private var mLocations: ArrayList<Location>? = null
-
-
-    fun setTraits(pTraits: ArrayList<CardTrait>?) {
-        mTraits = pTraits
-    }
-
-    fun getTraits(): ArrayList<CardTrait>? {
-        return mTraits
-    }
-
-    fun setLocations(pLocations: ArrayList<Location>?) {
-        mLocations = pLocations
-    }
-
-    fun getLocations(): ArrayList<Location>? {
-        return mLocations
-    }
+               val mImageResource: Int,
+               var mTraits : ArrayList<CardTrait> = ArrayList(),
+               var mLocations : ArrayList<Location> = ArrayList()) {
 }

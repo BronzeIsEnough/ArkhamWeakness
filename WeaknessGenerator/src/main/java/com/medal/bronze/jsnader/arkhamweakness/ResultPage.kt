@@ -116,7 +116,7 @@ class ResultPage : AppCompatActivity() {
 
     private fun randomlyGenerateWeakness() {
         val randomWeakness = getRandomCard() as Weakness?
-        mNumberOfTheseWeaknessesAvailable = randomWeakness?.getNumAvailable() as Int
+        mNumberOfTheseWeaknessesAvailable = randomWeakness?.mNumAvailable as Int
         displayCard(randomWeakness)
     }
 
@@ -176,7 +176,7 @@ class ResultPage : AppCompatActivity() {
 
     private fun displayCard(pCard: Card?) {
         mImageViewCard?.startAnimation(mAnimationSet)
-        pCard?.getDrawableResource()?.let { mImageViewCard?.setImageResource(it) }
+        pCard?.mDrawableResource?.let { mImageViewCard?.setImageResource(it) }
     }
 
     override fun onCreateOptionsMenu(pMenu: Menu?): Boolean {

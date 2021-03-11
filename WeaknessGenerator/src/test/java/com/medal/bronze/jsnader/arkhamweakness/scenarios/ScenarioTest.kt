@@ -8,6 +8,7 @@ import com.medal.bronze.jsnader.arkhamweakness.support.CardTrait
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import junit.framework.TestCase.assertNull
+import junit.framework.TestCase.assertTrue
 
 import org.junit.Before
 import org.junit.Test
@@ -34,17 +35,17 @@ internal class ScenarioTest {
 
     @Test
     fun checkTraitsForValidity() {
-        assertNull(mScenario.getTraits())
-        mScenario.setTraits(TRAITS)
-        assertNotNull(mScenario.getTraits())
-        assertEquals(TRAITS.size, mScenario.getTraits()!!.size)
+        assertTrue(mScenario.mTraits.isEmpty())
+        mScenario.mTraits = TRAITS
+        assertNotNull(mScenario.mTraits)
+        assertEquals(TRAITS.size, mScenario.mTraits.size)
     }
 
     @Test
     fun checkLocationsForValidity() {
-        assertNull(mScenario.getLocations())
-        mScenario.setLocations(LOCATIONS)
-        assertNotNull(mScenario.getLocations())
-        assertEquals(LOCATIONS.size, mScenario.getLocations()!!.size)
+        assertTrue(mScenario.mLocations.isEmpty())
+        mScenario.mLocations = LOCATIONS
+        assertNotNull(mScenario.mLocations)
+        assertEquals(LOCATIONS.size, mScenario.mLocations.size)
     }
 }

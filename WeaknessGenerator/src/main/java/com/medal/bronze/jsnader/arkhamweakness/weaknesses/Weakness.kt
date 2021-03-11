@@ -29,37 +29,11 @@ import java.util.*
  *
  * Created by Jeremiah on 3/24/2018.
  */
-class Weakness(pName: String,
-               pSetAffinity: CampaignAffinity,
-               pNumAvailable: Int,
-               pDrawableResource: Int) : Card() {
+class Weakness(mName: String,
+               val mSetAffinity: CampaignAffinity,
+               val mNumAvailable: Int,
+               mDrawableResource: Int,
+               var mCardTraits: ArrayList<CardTrait> = ArrayList())
+    : Card(mName, CardType.WEAKNESS, mDrawableResource) {
 
-    private val mName: String
-    private val mSetAffinity: CampaignAffinity
-    private val mNumAvailForSet: Int //1 or 2 typically
-    private var mCardTraits: ArrayList<CardTrait>? = null
-
-    init {
-        mCardType = CardType.WEAKNESS
-        mName = pName
-        mSetAffinity = pSetAffinity
-        mNumAvailForSet = pNumAvailable
-        mDrawableResource = pDrawableResource
-    }
-
-    fun setCardTraits(pCardTraits: ArrayList<CardTrait>?) {
-        mCardTraits = pCardTraits?.let { ArrayList(it) }
-    }
-
-    fun getCardTraits(): ArrayList<CardTrait>? {
-        return mCardTraits
-    }
-
-    fun getNumAvailable(): Int {
-        return mNumAvailForSet
-    }
-
-    override fun getDrawableResource(): Int {
-        return mDrawableResource
-    }
 }

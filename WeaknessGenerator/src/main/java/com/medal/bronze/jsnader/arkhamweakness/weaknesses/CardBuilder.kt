@@ -54,7 +54,7 @@ class CardBuilder(mScenarioType: ScenarioType?) {
 
     private fun buildGeneralWeaknessList() {
         for (weakness in this.mFullWeaknessList) {
-            for (index in 0 until weakness.getNumAvailable()) {
+            for (index in 0 until weakness.mNumAvailable) {
                 mCardList.add(weakness)
             }
         }
@@ -63,49 +63,49 @@ class CardBuilder(mScenarioType: ScenarioType?) {
     private fun buildUndimensionedWeaknessList() {
         val traits =
                 ScenarioBuilder().getScenario(
-                        ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS).getTraits()
+                        ScenarioType.UNDIMENSIONED_AND_UNSEEN_WEAKNESS).mTraits
         updateListWithTraits(traits)
     }
 
     private fun buildUndimensionedLocationList() {
         val locationList =
                 ScenarioBuilder().getScenario(
-                        ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION).getLocations()
-        for (location in locationList!!) {
+                        ScenarioType.UNDIMENSIONED_AND_UNSEEN_LOCATION).mLocations
+        for (location in locationList) {
             mCardList.add(location)
         }
     }
 
     private fun buildBlackStarsRiseWeaknessList() {
-        val traits = ScenarioBuilder().getScenario(ScenarioType.BLACK_STARS_RISE).getTraits()
+        val traits = ScenarioBuilder().getScenario(ScenarioType.BLACK_STARS_RISE).mTraits
         updateListWithTraits(traits)
     }
 
     private fun buildThePallidMaskWeaknessList() {
-        val traits = ScenarioBuilder().getScenario(ScenarioType.THE_PALLID_MASK).getTraits()
+        val traits = ScenarioBuilder().getScenario(ScenarioType.THE_PALLID_MASK).mTraits
         updateListWithTraits(traits)
     }
 
     private fun buildDepthsOfYothWeaknessList() {
         val traits =
-                ScenarioBuilder().getScenario(ScenarioType.DEPTHS_OF_YOTH_WEAKNESS).getTraits()
+                ScenarioBuilder().getScenario(ScenarioType.DEPTHS_OF_YOTH_WEAKNESS).mTraits
         updateListWithTraits(traits)
     }
 
     private fun buildDepthsOfYothLocationList() {
         val locationList =
-                ScenarioBuilder().getScenario(ScenarioType.DEPTHS_OF_YOTH_LOCATION).getLocations()
-        for (location in locationList!!) {
+                ScenarioBuilder().getScenario(ScenarioType.DEPTHS_OF_YOTH_LOCATION).mLocations
+        for (location in locationList) {
             mCardList.add(location)
         }
     }
 
-    private fun updateListWithTraits(pScenarioTraits: ArrayList<CardTrait>?) {
+    private fun updateListWithTraits(pScenarioTraits: ArrayList<CardTrait>) {
         for (weakness in this.mFullWeaknessList) {
-            for (trait in pScenarioTraits!!) {
+            for (trait in pScenarioTraits) {
                 //Step through each possible trait that the weakness could have.
-                if (weakness.getCardTraits()?.contains(trait)!!) {
-                    for (index in 0 until weakness.getNumAvailable()) {
+                if (weakness.mCardTraits.contains(trait)) {
+                    for (index in 0 until weakness.mNumAvailable) {
                         //If there are more than one card, add it multiple times.
                         mCardList.add(weakness)
                     }
@@ -357,11 +357,11 @@ class CardBuilder(mScenarioType: ScenarioType?) {
     }
 
     @Synchronized
-    private fun assignCardTraits(pWeakness: Weakness, pCardTraits: ArrayList<CardTrait>?) {
-        for (trait in pCardTraits?.let { ArrayList(it) }!!) {
+    private fun assignCardTraits(pWeakness: Weakness, pCardTraits: ArrayList<CardTrait>) {
+        for (trait in pCardTraits.let { ArrayList(it) }) {
             pCardTraits.add(trait)
         }
-        pWeakness.setCardTraits(pCardTraits)
+        pWeakness.mCardTraits = pCardTraits
         pCardTraits.clear()
     }
 }

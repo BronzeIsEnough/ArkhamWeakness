@@ -29,39 +29,11 @@ import kotlin.collections.ArrayList
  *
  * @author Jeremiah Snader
  */
-class Location(pName: String,
-               pDrawableResource: Int,
-               pLocationTraits: ArrayList<LocationTrait>,
-               pLocationValue: ConnectionSymbol,
-               pLocationConnections: ArrayList<ConnectionSymbol>) : Card() {
+class Location(mName : String,
+               mDrawableResource : Int,
+               val mLocationTraits : ArrayList<LocationTrait> = ArrayList(),
+               val mLocSymbol : ConnectionSymbol,
+               val mLocConnections : ArrayList<ConnectionSymbol> = ArrayList())
+    : Card(mName, CardType.LOCATION, mDrawableResource) {
 
-    var mName: String
-    var mLocationTraits: ArrayList<LocationTrait>
-    val mLocSymbol: ConnectionSymbol
-    var mConnections: ArrayList<ConnectionSymbol>
-
-    init {
-        mCardType = CardType.LOCATION
-        mName = pName
-        mDrawableResource = pDrawableResource
-        mLocationTraits = pLocationTraits
-        mLocSymbol = pLocationValue
-        mConnections = pLocationConnections
-    }
-
-    /**
-     * Returns a symbol that represents what location this card represents in the current
-     * scenario.  Symbols determine what other connections are connected to it a location.
-     */
-    public fun getLocationSymbol() : ConnectionSymbol {
-        return mLocSymbol;
-    }
-
-    /**
-     * This defines the connectivity of the location to other [Location]s. If a location has
-     * connectivity to another location, then their [ConnectionSymbol] will be in this list.
-     */
-    public fun getConnections() : ArrayList<ConnectionSymbol> {
-        return mConnections
-    }
 }

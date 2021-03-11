@@ -108,7 +108,7 @@ class SelectionPage : AppCompatActivity(), ScenarioSelectedListener {
     }
 
     /**
-     * A pointless feature really added in just to integrate datbases with the Room SDK provided by
+     * A pointless feature really added in just to integrate databases with the Room SDK provided by
      * Google.  It isn't necessary at the moment but we could expand upon our project in order to
      * make it a necessity and use it instead of code contruction of our so-called-database we are
      * using.

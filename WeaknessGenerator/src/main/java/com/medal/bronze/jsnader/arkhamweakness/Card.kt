@@ -17,10 +17,6 @@
  */
 package com.medal.bronze.jsnader.arkhamweakness
 
-open class Card {
-    var mCardType: CardType? = null
-    var mDrawableResource = 0
-    open fun getDrawableResource(): Int {
-        return mDrawableResource
-    }
+open class Card(val mName : String, val mCardType : CardType, val mDrawableResource : Int) {
+    // TODO: Add in common functionality here for the cards that we will interact with.
 }

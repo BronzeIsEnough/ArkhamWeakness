@@ -27,11 +27,11 @@ internal class LocationTest {
 
     @Test
     fun locationSymbolExistsAfterCreation() {
-        assertEquals(EXP_SYMBOL, loc.getLocationSymbol())
+        assertEquals(EXP_SYMBOL, loc.mLocSymbol)
     }
 
     @Test
     fun locationConnectionsExistAfterCreation() {
-        assertEquals(EXP_CONNECTIONS, loc.getConnections())
+        assertEquals(EXP_CONNECTIONS, loc.mLocConnections)
     }
 }
