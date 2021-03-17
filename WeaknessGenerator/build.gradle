@@ -51,6 +51,7 @@ android {
 
 dependencies {
     def room_version = "2.2.6"
+    def jupiter_version = "5.7.1"
 
     implementation project(path: ':openCv4v5v1')
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
@@ -75,6 +76,9 @@ dependencies {
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
     testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiter_version"
 }
 
 repositories {
